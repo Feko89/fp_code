@@ -1,0 +1,45 @@
+/*Footer*/
+footer{
+    width: auto;
+    height: auto;
+    background-color: rgb(3, 39, 39);
+}
+.foot-con{
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+}
+.footer-nadpis{
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: whitesmoke;
+    padding: 50px;
+}
+.foot-grid{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: whitesmoke;
+}
+.foot-grid-dva{
+    display: flex;
+    flex-direction: column;
+}
+.grid-content{
+    display: flex;
+    flex-direction: column;
+}
+.grid-content>a{
+    font-size: 1rem;
+    text-decoration:underline;
+    color: whitesmoke;
+    
+}
+.copy-r{
+    color: white;
+    font-size: 1rem;
+    padding: 20px;
+    text-align: center;
+}

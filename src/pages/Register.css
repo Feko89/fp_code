@@ -1,0 +1,90 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+.header-login a {
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.header-login a:hover {
+    background-color: #555;
+    color: whitesmoke;
+}
+.nav-custom{
+    width: 50rem;
+}
+.head-con-second{
+    margin-right: 20px;
+}
+.nav-item{
+    flex: 1;
+   
+}
+.navbar-nav{
+    width: 100%;
+    display: flex;
+}
+.nav-item>a{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+/* Telo*/
+.section-1{
+    padding-top: 200px;
+    padding-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.pozadie-login{
+    box-shadow: 0px 0px 20px 5px black;
+    background-color:rgb(3, 39, 39); ;
+    padding: 50px;
+    margin-left: 33%;
+    height: auto;
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+}
+.reg{
+    display: flex;
+    justify-content: space-between;
+}
+.registruj{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: whitesmoke;
+
+}
+.Nadpis-login{
+    font-size: 3rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: whitesmoke;
+
+}
+.form-text{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: whitesmoke;
+
+}
+.form-label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: whitesmoke;
+
+}
+.form-check-label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: whitesmoke;
+
+}

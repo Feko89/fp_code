@@ -1,0 +1,77 @@
+/* Resetovanie základných marginov a paddingov */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Telo stránky */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+/* Section-1*/
+.section-1{
+    color: whitesmoke;
+    width: 100%;
+    height: auto;
+    background-color: rgb(3, 39, 39);
+}
+.uvod-con{
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+    width: 100%;
+}
+.uvod-text{
+    padding-top: 200px;
+    padding-bottom: 200px;
+    width: 40%;
+    height: auto;
+    gap:10px;
+    display: flex;
+    flex-direction: column;
+}
+.uvod-text>h1{
+    font-size: 4rem;
+}
+.uvod-buttons{
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+    gap: 5%;
+    height: auto;
+    gap: 6%;
+}
+.uvod-buttons>button{
+    border-radius: 40px;
+    margin-top:220px ;
+    height: 60px;
+    width: 40%;
+    color: rgb(0, 0, 0);
+    background-color: rgb(218, 203, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}
+/* Section-2*/
+.onas-con{
+    width: 100%;
+    height: auto;
+}
+.onas-text{
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.onas-nadpis{
+    font-size: 3rem;
+}
+.onas-textik{
+    margin-top: 100px;
+    font-size: 1.6rem;
+}
