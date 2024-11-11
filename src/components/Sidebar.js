@@ -1,51 +1,62 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Sidebar.css';  // Pridaj CSS pre tento komponent
+import React, { useState } from 'react';
+import './Sidebar.css';
 
-const Sidebar = () => (
-  <>
-    <nav id="sidebar" class="d-none d-md-block bg-light sidebar">
-        <h4 class="text-center">Základy programovania</h4>
-        <ul class="nav flex-column">
-            <li class="sidebar-item"><a class="sidebar-link" href="#">Úvod do programovania</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="#">Diagrami</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="#">Syntax</a></li>
-            <li class="sidebar-item">
-                <a class="sidebar-link expandable collapsed" data-toggle="collapse" href="#syntaxSubmenu" role="button" aria-expanded="false" aria-controls="syntaxSubmenu">Dátové typi</a>
-                <div class="collapse" id="syntaxSubmenu">
-                    <ul class="nav flex-column">
-                        <li class="sidebar-item"><a class="sidebar-link" href="#">Preco rozdelujeme</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="#">Int</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="sidebar-item">
-                <a class="sidebar-link expandable collapsed" data-toggle="collapse" href="#variablesSubmenu" role="button" aria-expanded="false" aria-controls="variablesSubmenu">Integeri</a>
-                <div class="collapse" id="variablesSubmenu">
-                    <ul class="nav flex-column">
-                        <li class="sidebar-item"><a class="sidebar-link" href="#">Funkcie Int</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="#">Pouzitie Int</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="sidebar-item">
-                <a class="sidebar-link expandable collapsed" data-toggle="collapse" href="#stringsSubmenu" role="button" aria-expanded="false" aria-controls="stringsSubmenu">Stringy</a>
-                <div class="collapse" id="stringsSubmenu">
-                    <ul class="nav flex-column">
-                        <li class="sidebar-item"><a class="sidebar-link" href="#">Slicing Strings</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="#">Modify Strings</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="#">Concatenate Strings</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="#">Format Strings</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="#">Escape Characters</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="#">String Methods</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="#">String Exercises</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="sidebar-item"><a class="sidebar-link" href="#">Booleans</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="#">Operatory</a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="#">List</a></li>
-        </ul>
+const Sidebar = ({ setSelectedTopic }) => {
+  const [isDatoveTypyOpen, setDatoveTypyOpen] = useState(false);
+
+  // Funkcia na prepínanie viditeľnosti podtémy "Dátové typy" a nastavenie úvodu
+  const handleDatoveTypyClick = () => {
+    setDatoveTypyOpen(!isDatoveTypyOpen);
+    setSelectedTopic("Dátové typy - Úvod"); // Nastavenie úvodu pre Dátové typy
+  };
+
+  return (
+    <nav id="sidebar" className="d-none d-md-block bg-light sidebar">
+      <h4 className="text-center">Základy programovania</h4>
+      <ul className="nav flex-column">
+        <li className="sidebar-item">
+          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Úvod do programovania")}>Úvod do programovania</a>
+        </li>
+        <li className="sidebar-item">
+          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Diagramy")}>Diagrami</a>
+        </li>
+        <li className="sidebar-item">
+          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Syntax")}>Syntax</a>
+        </li>
+        
+        {/* Dátové typy s úvodom a podtémy */}
+        <li className="sidebar-item">
+          <a className="sidebar-link expandable" href="#" onClick={handleDatoveTypyClick}>
+            Dátové typy
+          </a>
+          {isDatoveTypyOpen && (
+            <div className="sub-menu">
+              <ul className="nav flex-column">
+                <li className="sidebar-item pod">
+                  <a className="sidebar-link pod" href="#" onClick={() => setSelectedTopic("Prečo rozdeľujeme")}><p>Prečo rozdeľujeme</p></a>
+                </li>
+                <li className="sidebar-item pod">
+                  <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Int")}><p>Int</p></a>
+                </li>
+                {/* Pridajte ďalšie podtémy podľa potreby */}
+              </ul>
+            </div>
+          )}
+        </li>
+
+        {/* Ďalšie položky */}
+        <li className="sidebar-item">
+          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Booleans")}>Booleans</a>
+        </li>
+        <li className="sidebar-item">
+          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Operatory")}>Operátory</a>
+        </li>
+        <li className="sidebar-item">
+          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("List")}>List</a>
+        </li>
+      </ul>
     </nav>
-    </>);
-export default Sidebar
+  );
+};
+
+export default Sidebar;

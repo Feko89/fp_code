@@ -7,7 +7,7 @@ const Header = () => (
     <header>
             <div class="header-content">
                 <img src={logo} alt="logo" class="header-logo"/>
-                <h1 class="header-title">Nazov stranky</h1>
+                <h1 class="header-title">FP code</h1>
             </div>
             <div class="header-content head-con-second">
                 <nav class="navbar navbar-expand-lg bg-body-tertiary nav-custom">

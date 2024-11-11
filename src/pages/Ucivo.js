@@ -1,16 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Ucivo.css';  // Pridaj CSS pre tento komponent
-import Content from '../components/Content';
+import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
+import Content from '../components/Content';
+import './Ucivo.css';
 
-const Ucivo = () => (
-  <>
-    <Sidebar />
-    <div className="content-container">
-      <Content />
+const Ucivo = () => {
+  const [selectedTopic, setSelectedTopic] = useState("Úvod do programovania");
+
+  return (
+    <div className="telo">
+      <Sidebar setSelectedTopic={setSelectedTopic} />
+      <div className="content-container">
+        <Content selectedTopic={selectedTopic} />
+      </div>
     </div>
-  </>
-);
+  );
+};
 
 export default Ucivo;

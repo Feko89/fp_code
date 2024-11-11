@@ -93,8 +93,12 @@ hr{color: black;}
 body {
     display: flex;
 }
+.telo{
+    display: flex;
+    width: 100%;
+}
 #sidebar {
-    width: 250px;
+    width: 20%;
     background-color: #f8f9fa;
     padding-top: 20px;
 }
@@ -137,6 +141,10 @@ body {
     text-decoration: none;
     display: block;
     padding: 20px;
+}
+.content-container{
+    margin-left: 5%;
+    width: 70%;
 }
 .telo{
     display: flex;
