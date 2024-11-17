@@ -24,11 +24,13 @@ const Header = () => (
                         </li>
                         <li class="nav-item">
                             <Link to="/ucivo" class="nav-link">
-                                Ucivo
+                                Učivo
                             </Link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">o nas</a>
+                        <Link to="/notes" class="nav-link">
+                            Poznámky
+                        </Link>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
