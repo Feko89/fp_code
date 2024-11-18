@@ -1,43 +1,118 @@
-import React from "react";
-import './Register.css'; 
+import React, { useState } from "react";
+import './Register.css';
 
-const Register = () => (
-    <>
-    <div class="section-1">
-        <div class="pozadie-login">
-            <div class="Nadpis-login">Registrácia</div>
-            <form>
-                <div class="mb-3">
-                    <label for="exampleInputName" class="form-label">Meno</label>
-                    <input type="Name" class="form-control" id="exampleInputName" aria-describedby="nameHelp"/>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputSurname" class="form-label">Priezvisko</label>
-                    <input type="Surname" class="form-control" id="exampleInputName" aria-describedby="surnameHelp"/>
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email adresa</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Heslo</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1"/>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword2" class="form-label">Potvrď Heslo</label>
-                    <input type="password" class="form-control" id="exampleInputPassword2"/>
-                  </div>
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
-                  <div class="reg">
-                  <label class="form-check-label" for="exampleCheck1">Zaškrtni!</label>
-                  <a class="registruj" href="registruj">Máš účet prihlás sa!!</a>
-                </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Potvrď</button>
-              </form>
+const Register = () => {
+    const [formData, setFormData] = useState({
+        name: "",
+        surname: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+
+    const handleRegister = async (e) => {
+        e.preventDefault();
+
+        // Overenie hesla
+        if (formData.password !== formData.confirmPassword) {
+            alert("Heslá sa nezhodujú!");
+            return;
+        }
+
+        try {
+            const response = await fetch("http://localhost:5000/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    surname: formData.surname,
+                    email: formData.email,
+                    password: formData.password,
+                }),
+            });
+
+            if (response.ok) {
+                alert("Registrácia bola úspešná!");
+            } else {
+                alert("Nepodarilo sa zaregistrovať používateľa.");
+            }
+        } catch (error) {
+            console.error("Chyba pri registrácii:", error);
+        }
+    };
+
+    return (
+        <div className="section-1">
+            <div className="pozadie-login">
+                <div className="Nadpis-login">Registrácia</div>
+                <form onSubmit={handleRegister}>
+                    <div className="mb-3">
+                        <label className="form-label">Meno</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Priezvisko</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="surname"
+                            value={formData.surname}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Email adresa</label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Heslo</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Potvrď Heslo</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            name="confirmPassword"
+                            value={formData.confirmPassword}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-primary">
+                        Potvrď
+                    </button>
+                </form>
+            </div>
         </div>
-    </div>
-    </>);
-export default Register;
+    );
+};
 
+export default Register;
