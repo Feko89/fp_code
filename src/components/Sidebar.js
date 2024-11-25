@@ -18,7 +18,7 @@ const Sidebar = ({ setSelectedTopic }) => {
           <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Úvod do programovania")}>Úvod do programovania</a>
         </li>
         <li className="sidebar-item">
-          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Diagramy")}>Diagrami</a>
+          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Diagramy")}>Diagramy</a>
         </li>
         <li className="sidebar-item">
           <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Syntax")}>Syntax</a>

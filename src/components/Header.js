@@ -16,10 +16,10 @@ const Header = () => {
 
     return (
         <header>
-            <div className="header-content">
+            <Link to="/" className="header-content">
                 <img src={logo} alt="logo" className="header-logo" />
                 <h1 className="header-title">FP code</h1>
-            </div>
+            </Link>
             <div className="header-content head-con-second">
                 <nav className="navbar navbar-expand-lg bg-body-tertiary nav-custom">
                     <div className="container-fluid">
@@ -74,7 +74,6 @@ const Header = () => {
                 <div className="header-login">
                     {isLoggedIn ? (
                         <>
-                            <span className="user-status">Prihlásený</span>
                             <button className="btn btn-danger" onClick={handleLogout}>
                                 Odhlásiť sa
                             </button>

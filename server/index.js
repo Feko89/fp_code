@@ -43,18 +43,26 @@ app.get("/data", authenticate, async (req, res) => {
         if (client) client.close();
     }
 });
+    
 
 // Endpoint na pridanie poznámky
 app.post("/add-note", authenticate, async (req, res) => {
-    const { note } = req.body;
+    const { title, content } = req.body;
 
-    if (!note) return res.status(400).send("Note is required");
+    if (!title || !content) {
+        return res.status(400).send("Title and content are required");
+    }
 
     let client;
     try {
         client = await connectDB();
         const collection = client.db("FP_Code").collection("Notes");
-        const result = await collection.insertOne({ note, userId: req.userId });
+        const result = await collection.insertOne({
+            title,
+            content,
+            userId: req.userId,
+            createdAt: new Date(), // Timestamp
+        });
         res.status(201).send(result);
     } catch (error) {
         console.error("Failed to add note:", error);
@@ -63,6 +71,7 @@ app.post("/add-note", authenticate, async (req, res) => {
         if (client) client.close();
     }
 });
+
 
 // Endpoint na registráciu
 app.post("/register", async (req, res) => {
@@ -137,6 +146,60 @@ app.post("/login", async (req, res) => {
         if (client) client.close();
     }
 });
+
+
+app.delete("/delete-note/:id", authenticate, async (req, res) => {
+    const { id } = req.params;
+
+    let client;
+    try {
+        client = await connectDB();
+        const collection = client.db("FP_Code").collection("Notes");
+        const result = await collection.deleteOne({ _id: new require("mongodb").ObjectId(id), userId: req.userId });
+
+        if (result.deletedCount === 0) {
+            return res.status(404).send("Note not found");
+        }
+
+        res.status(200).send("Note deleted");
+    } catch (error) {
+        console.error("Failed to delete note:", error);
+        res.status(500).send("Error deleting note");
+    } finally {
+        if (client) client.close();
+    }
+});
+
+app.put("/update-note/:id", authenticate, async (req, res) => {
+    const { id } = req.params;
+    const { title, content } = req.body;
+
+    if (!title || !content) {
+        return res.status(400).send("Title and content are required");
+    }
+
+    let client;
+    try {
+        client = await connectDB();
+        const collection = client.db("FP_Code").collection("Notes");
+        const result = await collection.updateOne(
+            { _id: new require("mongodb").ObjectId(id), userId: req.userId },
+            { $set: { title, content, updatedAt: new Date() } }
+        );
+
+        if (result.matchedCount === 0) {
+            return res.status(404).send("Note not found");
+        }
+
+        res.status(200).send("Note updated");
+    } catch (error) {
+        console.error("Failed to update note:", error);
+        res.status(500).send("Error updating note");
+    } finally {
+        if (client) client.close();
+    }
+});
+
 
 app.listen(5000, () => {
     console.log("Server running on port 5000");
