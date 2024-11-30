@@ -33,10 +33,25 @@ const Sidebar = ({ setSelectedTopic }) => {
             <div className="sub-menu">
               <ul className="nav flex-column">
                 <li className="sidebar-item pod">
-                  <a className="sidebar-link pod" href="#" onClick={() => setSelectedTopic("Prečo rozdeľujeme")}><p>Prečo rozdeľujeme</p></a>
+                  <a className="sidebar-link pod" href="#" onClick={() => setSelectedTopic("Reťazec - String")}><p>String</p></a>
                 </li>
                 <li className="sidebar-item pod">
                   <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Int")}><p>Int</p></a>
+                </li>
+                <li className="sidebar-item pod">
+                  <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Float")}><p>Float</p></a>
+                </li>
+                <li className="sidebar-item pod">
+                  <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Bool")}><p>Boolean</p></a>
+                </li>
+                <li className="sidebar-item pod">
+                  <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("List")}><p>List</p></a>
+                </li>
+                <li className="sidebar-item pod">
+                  <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Dict")}><p>Dict</p></a>
+                </li>
+                <li className="sidebar-item pod">
+                  <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Tuple")}><p>Tuple</p></a>
                 </li>
                 {/* Pridajte ďalšie podtémy podľa potreby */}
               </ul>
@@ -44,10 +59,7 @@ const Sidebar = ({ setSelectedTopic }) => {
           )}
         </li>
 
-        {/* Ďalšie položky */}
-        <li className="sidebar-item">
-          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Booleans")}>Booleans</a>
-        </li>
+       
         <li className="sidebar-item">
           <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Operatory")}>Operátory</a>
         </li>
