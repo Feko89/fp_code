@@ -1021,8 +1021,522 @@ index = moj_tuple.index(3)  # &#123;2&#125;
 
 <h2>Prečo sú tuple dôležité?</h2>
 <p>Tuple sú vhodné na uchovávanie dát, ktoré by sa nemali meniť počas vykonávania programu. Ich nezmeniteľnosť poskytuje väčšiu bezpečnosť a efektívnosť pri práci s dátami, a sú využívané tam, kde je požiadavka na nemennosť údajov (napr. kľúče v dictionary).</p>
-</>),
-};
+</>),"Operatory":(
+  <>
+  <h1>Operátory</h1>
+  <p><strong>Operátory</strong> v programovaní sú špeciálne symboly alebo kľúčové slová, ktoré umožňujú vykonávať operácie nad hodnotami alebo premennými. Python podporuje množstvo rôznych typov operátorov.</p>
+  
+  <h2>Typy operátorov</h2>
+  <ul>
+    <li><strong>Aritmetické operátory</strong>: Operácie s číslami (sčítanie, odčítanie, násobenie atď.).</li>
+    <li><strong>Porovnávacie operátory</strong>: Porovnanie dvoch hodnôt.</li>
+    <li><strong>Logické operátory</strong>: Kombinovanie podmienok.</li>
+    <li><strong>Priraďovacie operátory</strong>: Priraďovanie hodnôt premenným.</li>
+    <li><strong>Bitové operátory</strong>: Operácie na úrovni jednotlivých bitov.</li>
+    <li><strong>Ostatné operátory</strong>: Členstvo (<code>in</code>) a identita (<code>is</code>).</li>
+  </ul>
+  
+  <h2>Aritmetické operátory</h2>
+  <pre><code>
+  # Sčítanie<br></br>
+  vysledok = 5 + 3  # 8<br></br><br></br>
+  
+  # Odčítanie<br></br>
+  vysledok = 5 - 3  # 2<br></br><br></br>
+  
+  # Násobenie<br></br>
+  vysledok = 5 * 3  # 15<br></br>
+  <br></br>
+  # Delenie<br></br>
+  vysledok = 5 / 3  # 1.666...<br></br><br></br>
+  
+  # Celé delenie<br></br>
+  vysledok = 5 // 3  # 1<br></br><br></br>
+  
+  # Modulo (zvyšok po delení)<br></br>
+  vysledok = 5 % 3  # 2<br></br><br></br>
+  
+  # Mocnina<br></br>
+  vysledok = 5 ** 3  # 125<br></br><br></br>
+  </code></pre>
+  
+  <h2>Porovnávacie operátory</h2>
+  <p>Porovnávacie operátory vracajú hodnoty <code>True</code> alebo <code>False</code>:</p>
+  <pre><code><br></br>
+  # Rovnosť<br></br>
+  vysledok = 5 == 3  # False<br></br><br></br>
+  
+  # Nerovnosť<br></br>
+  vysledok = 5 != 3  # True<br></br><br></br>
+  
+  # Väčší alebo menší<br></br>
+  vysledok = 5 &gt 3  # True<br></br>
+  vysledok = 5 &lt 3  # False<br></br><br></br>
+  
+  # Väčší alebo rovný, menší alebo rovný<br></br>
+  vysledok = 5 &gt= 3  # True<br></br>
+  vysledok = 5 &lt= 3  # False<br></br><br></br>
+  </code></pre>
+  
+  <h2>Logické operátory</h2>
+  <p>Na kombinovanie podmienok sa používajú logické operátory:</p>
+  <pre><code>
+  # AND<br></br>
+  vysledok = (5 &gt 3) and (3 &gt 2)  # True<br></br>
+  
+  # OR<br></br>
+  vysledok = (5 &gt 3) or (3 &lt 2)  # True<br></br><br></br>
+  
+  # NOT<br></br>
+  vysledok = not (5 &gt 3)  # False<br></br><br></br>
+  </code></pre>
+  
+  <h2>Priraďovacie operátory</h2>
+  <p>Priraďovacie operátory sa používajú na priraďovanie hodnôt premenným:</p>
+  <pre><code>
+  # Jednoduché priradenie<br></br>
+  x = 5<br></br><br></br>
+  
+  # Sčítanie a priradenie<br></br>
+  x += 3  # x = x + 3<br></br><br></br>
+  
+  # Odčítanie a priradenie<br></br>
+  x -= 3  # x = x - 3<br></br><br></br>
+  
+  # Násobenie a priradenie<br></br>
+  x *= 3  # x = x * 3<br></br><br></br>
+  
+  # Delenie a priradenie<br></br>
+  x /= 3  # x = x / 3<br></br><br></br>
+  
+  # Modulo a priradenie<br></br>
+  x %= 3  # x = x % 3<br></br><br></br>
+  
+  # Mocnina a priradenie<br></br>
+  x **= 3  # x = x ** 3<br></br>
+  </code></pre>
+  
+  <h2>Bitové operátory</h2>
+  <p>Operátory na prácu s bitmi (možete si pamätať z hodín elektotechniky):</p>
+  <pre><code>
+  # AND<br></br>
+  vysledok = 5 & 3  # 1<br></br>
+  
+  # OR<br></br>
+  vysledok = 5 | 3  # 7<br></br>
+  <br></br>
+  # XOR<br></br>
+  vysledok = 5 ^ 3  # 6<br></br><br></br>
+  
+  # Posun doľava<br></br>
+  vysledok = 5 &lt&lt 1  # 10<br></br><br></br>
+  
+  # Posun doprava<br></br>
+  vysledok = 5 &gt&gt 1  # 2<br></br>
+  </code></pre>
+  
+  <h2>Ostatné operátory</h2>
+  <p>Členstvo a identita:</p>
+  <pre><code>
+  # Členstvo<br></br>
+  vysledok = 3 in [1, 2, 3]  # True<br></br>
+  
+  # Identita<br></br>
+  vysledok = x is y  # True, ak x a y sú rovnaké objekty<br></br><br></br>
+  </code></pre>
+  
+  <h2>Prečo sú operátory dôležité?</h2>
+  <p>Operátory umožňujú vykonávať základné operácie nad dátami, čo je základom každého programovacieho jazyka. Porozumenie ich použitiu je kľúčové pre efektívne písanie kódu.</p>
+  </>
+  
+),"Podmienky":(
+  <>
+<h1>Podmienky</h1>
+<p><strong>Podmienky</strong> v programovaní umožňujú vykonávať rôzne časti kódu na základe splnenia určitých podmienok. V Pythone sa na implementáciu podmienok používajú kľúčové slová ako <code>if</code>, <code>elif</code>, a <code>else</code>.</p>
+
+<h2>Základná syntax podmienok</h2>
+<pre><code>
+if podmienka:<br></br>
+    &emsp;# Blok kódu, ktorý sa vykoná, ak je podmienka splnená<br></br>
+elif iná_podmienka:<br></br>
+    &emsp;# Blok kódu, ktorý sa vykoná, ak je splnená iná podmienka<br></br>
+else:<br></br>
+    &emsp;# Blok kódu, ktorý sa vykoná, ak žiadna podmienka nie je splnená<br></br>
+</code></pre>
+
+<h2>Príklad podmienok</h2>
+<pre><code>
+# Kontrola veku<br></br>
+vek = 18<br></br>
+if vek &#62;= 18:<br></br>
+    &emsp;print("Ste dospelý.")<br></br>
+elif vek &#62;= 15:<br></br>
+    &emsp;print("Ste tínedžer.")<br></br>
+else:<br></br>
+    &emsp;print("Ste dieťa.")<br></br>
+</code></pre>
+
+<h2>Podmienky s logickými operátormi</h2>
+<p>Kombinácia podmienok sa vykonáva pomocou logických operátorov (<code>and</code>, <code>or</code>, <code>not</code>):</p>
+<pre><code>
+# Kontrola čísel<br></br>
+cislo = 10<br></br>
+if cislo &#62; 0 and cislo &#60; 100:<br></br>
+    &emsp;print("Číslo je v intervale 0 až 100.")<br></br>
+if not cislo &#62; 0:<br></br>
+    &emsp;print("Číslo nie je záporné.")<br></br>
+</code></pre>
+
+<h2>Vnorené podmienky</h2>
+<p>Podmienky môžu byť vnorené do seba, aby pokryli viacero scenárov:</p>
+<pre><code>
+# Kategorizácia známky<br></br>
+znamka = 3<br></br>
+if znamka &#62;= 1:<br></br>
+    &emsp;if znamka &#60;= 3:<br></br>
+        &emsp;&emsp;print("Dobrá známka.")<br></br>
+    &emsp;else:<br></br>
+        &emsp;&emsp;print("Priemerná známka.")<br></br>
+else:<br></br>
+    &emsp;print("Zlá známka.")<br></br>
+</code></pre>
+
+<h2>Podmienky v skrátenom zápise</h2>
+<p>Python umožňuje skrátený zápis jednoduchých podmienok pomocou operátoru <code>if-else</code>:</p>
+<pre><code>
+# Skrátený zápis<br></br>
+vek = 20<br></br>
+vysledok = "Dospelý" if vek &#62;= 18 else "Nedospelý"<br></br>
+print(vysledok)<br></br>
+</code></pre>
+
+<h2>Práca s podmienkami vo funkciách</h2>
+<p>Podmienky sa často používajú vo funkciách na rozhodovanie:</p>
+<pre><code>
+# Funkcia na kontrolu párneho čísla<br></br>
+def je_parne(cislo):<br></br>
+    &emsp;if cislo % 2 == 0:<br></br>
+        &emsp;&emsp;return True<br></br>
+    &emsp;else:<br></br>
+        &emsp;&emsp;return False<br></br>
+
+# Použitie funkcie<br></br>
+print(je_parne(4))  # True<br></br>
+</code></pre>
+
+<h2>Prečo sú podmienky dôležité?</h2>
+<p>Podmienky umožňujú riadiť tok programu na základe rôznych situácií. Sú kľúčovým prvkom pri písaní logiky, ktorá reaguje na rôzne vstupy alebo stavy aplikácie.</p>
+</>
+
+
+),"Cyklus":(
+  <>
+<h1>Úvod do cyklov</h1>
+<p><strong>Cyklus</strong> v programovaní je konštrukcia, ktorá umožňuje opakovane vykonávať určitý blok kódu. Používa sa, keď potrebujeme niečo opakovať, napríklad prechádzať cez položky zoznamu alebo vykonávať akciu, kým nie je splnená určitá podmienka.</p>
+
+<h2>Druhy cyklov v Pythone</h2>
+<p>V Pythone existujú dva hlavné druhy cyklov:</p>
+<ul>
+  <li><code>for</code> cyklus: Používa sa na iteráciu cez sekvencie (zoznamy, tuple, stringy, range).</li>
+  <li><code>while</code> cyklus: Používa sa na vykonávanie kódu, kým je splnená určitá podmienka.</li>
+</ul>
+
+<h2>Prečo používať cykly?</h2>
+<p>Cykly sú dôležitým nástrojom, pretože:</p>
+<ul>
+  <li>Šetria čas a znižujú množstvo kódu pri opakovaniach.</li>
+  <li>Umožňujú efektívne spracovanie dát.</li>
+  <li>Sú základným prvkom algoritmov a logiky programovania.</li>
+</ul>
+
+<h2>Základné príklady cyklov</h2>
+
+<h3>For cyklus</h3>
+<pre><code>
+# Prechod cez zoznam pomocou for<br></br>
+zoznam = [1, 2, 3, 4]<br></br>
+for prvok in zoznam:<br></br>
+    print(prvok)<br></br>
+</code></pre>
+
+<h3>While cyklus</h3>
+<pre><code>
+# Opakovanie, kým je splnená podmienka<br></br>
+cislo = 0<br></br>
+while cislo &lt  5:<br></br>
+    print(cislo)<br></br>
+    cislo += 1<br></br>
+</code></pre>
+
+<h2>Prelom a pokračovanie v cykloch</h2>
+<p>Python obsahuje kľúčové slová <code>break</code> a <code>continue</code>, ktoré umožňujú riadiť tok cyklu:</p>
+<pre><code>
+# Použitie break<br></br>
+for cislo in range(10):<br></br>
+    if cislo == 5:<br></br>
+        break  # Cyklus sa ukončí<br></br>
+    print(cislo)<br></br>
+
+# Použitie continue<br></br>
+for cislo in range(10):<br></br>
+    if cislo % 2 == 0:<br></br>
+        continue  # Preskočí aktuálnu iteráciu<br></br>
+    print(cislo)<br></br>
+</code></pre>
+
+<h2>Kedy použiť ktorý cyklus?</h2>
+<ul>
+  <li>Použite <code>for</code>, keď viete, koľko iterácií potrebujete (napr. prechádzanie zoznamu).</li>
+  <li>Použite <code>while</code>, keď chcete vykonávať akciu, kým platí určitá podmienka.</li>
+</ul>
+
+<h2>Zhrnutie</h2>
+<p>Cyklus je základný nástroj, ktorý umožňuje zjednodušiť a efektívne vykonávať opakovania v kóde. V ďalších sekciách sa detailnejšie pozrieme na jednotlivé typy cyklov.</p>
+</>
+
+),"For":(
+  <>
+<h1>For cyklus</h1>
+<p><strong>For cyklus</strong> je jedným z najpoužívanejších cyklov v Pythone. Umožňuje prechádzať cez sekvencie ako zoznamy, reťazce alebo iné iterovateľné objekty a vykonávať akcie pre každý prvok v tejto sekvencii.</p>
+
+<h2>Základná syntax for cyklu</h2>
+<pre><code>
+for prvok in sekvencia:<br></br>
+    # Blok kódu, ktorý sa vykoná pre každý prvok v sekvencii<br></br>
+</code></pre>
+
+<h2>Príklad základného for cyklu</h2>
+<pre><code>
+# Prechod cez zoznam<br></br>
+zoznam = [1, 2, 3, 4, 5]<br></br>
+for cislo in zoznam:<br></br>
+    print(cislo)<br></br>
+</code></pre>
+
+<h2>For cyklus s funkciou range()</h2>
+<p>Funkcia <code>range()</code> sa často používa v kombinácii s <code>for</code> cyklom na generovanie číselných sekvencií:</p>
+<pre><code>
+# For cyklus s range<br></br>
+for i in range(5):<br></br>
+    print(i)  # Vytlačí čísla 0, 1, 2, 3, 4<br></br>
+</code></pre>
+
+<h2>Vnorený for cyklus</h2>
+<p>For cykly môžu byť vnorené, čo znamená, že jeden cyklus je umiestnený vo vnútri iného:</p>
+<pre><code>
+# Vnorený for cyklus<br></br>
+for i in range(3):<br></br>
+    for j in range(2):<br></br>
+        print(f"i: i, j: j")<br></br>
+</code></pre>
+
+<h2>Prechod cez znaky v reťazci</h2>
+<p>For cyklus môžete použiť aj na prechod cez znaky v reťazci:</p>
+<pre><code>
+# Prechod cez znaky v reťazci<br></br>
+retezec = "Hello"<br></br>
+for znak in retezec:<br></br>
+    print(znak)<br></br>
+</code></pre>
+
+
+<h2>For cyklus s krokovaním</h2>
+<p>Funkcia <code>range()</code> umožňuje definovať krok, ktorý určuje, aký krok sa použije pri generovaní čísel:</p>
+<pre><code>
+# For cyklus s krokovaním<br></br>
+for i in range(0, 10, 2):  # Krok 2<br></br>
+    print(i)  # Vytlačí 0, 2, 4, 6, 8<br></br>
+</code></pre>
+
+<h2>Prečo je for cyklus dôležitý?</h2>
+<p>For cyklus je užitočný na prechod cez sekvencie a opakovanie operácií na základe týchto sekvencií. Je to nevyhnutný nástroj pri spracovaní kolekcií dát v programovaní.</p>
+</>
+
+),"While":(
+  <>
+<h1>Dátový typ - While cyklus</h1>
+<p><strong>While cyklus</strong> je ďalší typ cyklu v Pythone, ktorý vykonáva blok kódu, kým je podmienka pravdivá. Tento cyklus je užitočný v prípadoch, keď nevieme vopred, koľkokrát sa má kód vykonať.</p>
+
+<h2>Základná syntax while cyklu</h2>
+<pre><code>
+while podmienka:<br></br>
+    # Blok kódu, ktorý sa vykoná, kým je podmienka pravdivá<br></br>
+</code></pre>
+
+<h2>Príklad základného while cyklu</h2>
+<pre><code>
+# Počítanie od 1 do 5<br></br>
+cislo = 1<br></br>
+while cislo &#60= 5:<br></br>
+    print(cislo)<br></br>
+    cislo += 1<br></br>
+</code></pre>
+
+<h2>Bežné použitie while cyklu</h2>
+<p>While cyklus sa často používa na opakovanie operácií, ktoré sa majú vykonávať, kým sa podmienka neprestane plniť:</p>
+<pre><code>
+# Hľadanie čísel, ktoré sú menšie ako 10<br></br>
+cislo = 0<br></br>
+while cislo &#60 10:<br></br>
+    print(cislo)<br></br>
+    cislo += 1<br></br>
+</code></pre>
+
+<h2>Infinite loop (nekonečný cyklus)</h2>
+<p>Ak podmienka while cyklu nikdy neprestane byť pravdivá, vytvorí sa nekonečný cyklus:</p>
+<pre><code>
+# Nekonečný cyklus (Pozor na použitie!)<br></br>
+while True:<br></br>
+    print("Tento cyklus sa nikdy nezastaví.")<br></br>
+</code></pre>
+
+<h2>Prerušenie while cyklu pomocou break</h2>
+<p>Pomocou príkazu <code>break</code> môžeme cyklus predčasne ukončiť:</p>
+<pre><code>
+# Ukončenie cyklu pri dosiahnutí určitej hodnoty<br></br>
+cislo = 0<br></br>
+while True:<br></br>
+    cislo += 1<br></br>
+    if cislo == 5:<br></br>
+        break<br></br>
+    print(cislo)<br></br>
+</code></pre>
+
+<h2>Pokračovanie cyklu pomocou continue</h2>
+<p>Príkaz <code>continue</code> umožňuje preskočiť aktuálnu iteráciu cyklu a pokračovať v ďalšej:</p>
+<pre><code>
+# Preskočenie čísel, ktoré sú deliteľné 2<br></br>
+cislo = 0<br></br>
+while cislo &#60 10:<br></br>
+    cislo += 1<br></br>
+    if cislo % 2 == 0:<br></br>
+        continue<br></br>
+    print(cislo)<br></br>
+</code></pre>
+
+<h2>Práca s podmienkami vo while cykle</h2>
+<p>While cyklus sa dá kombinovať s podmienkami pre ešte flexibilnejšiu kontrolu toku programu:</p>
+<pre><code>
+# Použitie podmienky vo while cykle<br></br>
+cislo = 0<br></br>
+while cislo &#60 10:<br></br>
+    if cislo % 2 == 0:<br></br>
+        print(f"\u007Bcislo\u007D je párne.")<br></br>
+    else:<br></br>
+        print(f"\u007Bcislo\u007D je nepárne.")<br></br>
+    cislo += 1<br></br>
+</code></pre>
+
+<h2>Prečo je while cyklus dôležitý?</h2>
+<p>While cyklus je užitočný, keď nevieme vopred, koľkokrát sa cyklus vykoná, a je potrebné vykonávať operácie, kým sa nezmení určitý stav alebo podmienka. Je flexibilný a umožňuje riešiť rôzne problémy, kde je potrebná dynamická kontrola podmienok.</p>
+</>
+
+),"Markdown":(
+  <>
+<h1>Základy Markdown</h1>
+<p><strong>Markdown</strong> je jednoduchý jazyk na formátovanie textu, ktorý umožňuje rýchle a efektívne vytváranie dokumentov, poznámok a zápiskov. Markdown sa používa na písanie textov, ktoré môžu byť ľahko prevedené do formátov ako HTML.</p>
+
+<h2>Základné formátovanie textu</h2>
+<p>Markdown ponúka jednoduché spôsoby formátovania textu pomocou špeciálnych znakov:</p>
+
+
+<h3>Nadpis</h3>
+<p>Ak chcete vytvoriť nadpis, použite hastag pred slovom <code>#slovo</code>:</p>
+<pre><code>
+#Toto je nadpis<br></br>
+</code></pre>
+
+<h3>Tučný text</h3>
+<p>Ak chcete vytvoriť tučný text, použite dve hviezdičky <code>**</code> alebo podtržítka <code>__</code> okolo textu:</p>
+<pre><code>
+**Toto je tučný text**<br></br>
+</code></pre>
+
+<h3>Kurzíva</h3>
+<p>Pre kurzívu použite jednu hviezdičku <code>*</code> alebo podtržítko <code>_</code>:</p>
+<pre><code>
+*Toto je kurzíva*<br></br>
+</code></pre>
+
+<h3>Preškrtnutý text</h3>
+<p>Ak chcete preškrtnúť text, použite dve vlnovky <code>~~</code> okolo textu:</p>
+<pre><code>
+~~Tento text je preškrtnutý~~<br></br>
+</code></pre>
+
+<h2>Odkazy a obrázky</h2>
+<h3>Odkazy</h3>
+<p>Na vytvorenie odkazu použite zátvorky pre text odkazu a následne v zátvorkách URL:</p>
+<pre><code>
+[Toto je odkaz](https://www.example.com)<br></br>
+</code></pre>
+
+<h3>Obrázky</h3>
+<p>Obrázky sa vkladajú podobne ako odkazy, ale pred zátvorkami musíte pridať výkričník:</p>
+<pre><code>
+![Obrázok](https://via.placeholder.com/150)<br></br>
+</code></pre>
+
+<h2>Zoznamy</h2>
+<h3>Neusporiadaný zoznam</h3>
+<p>Pre neusporiadaný zoznam použite pomlčku <code>-</code>, hviezdičku <code>*</code> alebo plus <code>+</code>:</p>
+<pre><code>
+- Prvý bod<br></br>
+- Druhý bod<br></br>
+- Tretí bod<br></br>
+</code></pre>
+
+<h3>Usporiadaný zoznam</h3>
+<p>Pre usporiadaný zoznam použite čísla s bodkou:</p>
+<pre><code>
+1. Prvý bod<br></br>
+2. Druhý bod<br></br>
+3. Tretí bod<br></br>
+</code></pre>
+
+<h2>Kódové bloky</h2>
+<h3>Jednoduchý kód</h3>
+<p>Pre kód v riadku použite spätné úvodzovky <code>`</code>:</p>
+<pre><code>
+`print("Ahoj svet")`<br></br>
+</code></pre>
+
+<h3>Viacriadkový kód</h3>
+<p>Pre viacriadkový kód použite tri spätné úvodzovky:</p>
+<pre><code>
+def pozdrav(): print("Ahoj svet")
+</code></pre>
+
+<h2>Hlavičky</h2>
+<p>Na vytvorenie hlavičiek použite znak <code>#</code>. Počet <code>#</code> určuje úroveň hlavičky (1 až 6):</p>
+<pre><code>
+# Hlavná hlavička<br></br>
+## Sekcia 1<br></br>
+### Podsekcia 1.1<br></br>
+</code></pre>
+
+<h2>Horizontálne čiary</h2>
+<p>Pre horizontálnu čiaru použite tri pomlčky, hviezdičky alebo podtržítka:</p>
+<pre><code>
+---<br></br>
+</code></pre>
+
+<h2>Tabuľky</h2>
+<p>Tabuľky vytvoríte pomocou pomlčiek a vertikálnych čiar <code>|</code>:</p>
+<pre><code>
+| Meno     | Vek | Mesto      |<br></br>
+|----------|-----|------------|<br></br>
+| Peter    | 25  | Bratislava |<br></br>
+| Jana     | 30  | Košice     |<br></br>
+</code></pre>
+
+<h2>Prečo používať Markdown?</h2>
+<p>Markdown je skvelý nástroj na rýchle písanie formátovaného textu, ktorý sa dá jednoducho konvertovať do rôznych formátov, ako HTML. Je jednoduchý, flexibilný a vhodný na písanie poznámok, dokumentácie alebo blogov.</p>
+</>
+
+
+)
+}
 
 const Content = ({ selectedTopic }) => (
   <div id="content">

@@ -3,11 +3,25 @@ import './Sidebar.css';
 
 const Sidebar = ({ setSelectedTopic }) => {
   const [isDatoveTypyOpen, setDatoveTypyOpen] = useState(false);
+  const [isCyklusOpen, setCyklusOpen] = useState(false);
+  const [isStudentiOpen, setStudentiOpen] = useState(false); // Stav pre "Pre študentov SPŠE"
 
   // Funkcia na prepínanie viditeľnosti podtémy "Dátové typy" a nastavenie úvodu
   const handleDatoveTypyClick = () => {
     setDatoveTypyOpen(!isDatoveTypyOpen);
-    setSelectedTopic("Dátové typy - Úvod"); // Nastavenie úvodu pre Dátové typy
+    setSelectedTopic("Dátové typy - Úvod");
+  };
+
+  // Funkcia na prepínanie viditeľnosti podtémy "Cyklus" a nastavenie úvodu
+  const handleCyklusClick = () => {
+    setCyklusOpen(!isCyklusOpen);
+    setSelectedTopic("Cyklus");
+  };
+
+  // Funkcia na prepínanie viditeľnosti podtémy "Pre študentov SPŠE" a nastavenie úvodu
+  const handleStudentiClick = () => {
+    setStudentiOpen(!isStudentiOpen);
+    setSelectedTopic("Pre študentov SPŠE");
   };
 
   return (
@@ -23,7 +37,7 @@ const Sidebar = ({ setSelectedTopic }) => {
         <li className="sidebar-item">
           <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Syntax")}>Syntax</a>
         </li>
-        
+
         {/* Dátové typy s úvodom a podtémy */}
         <li className="sidebar-item">
           <a className="sidebar-link expandable" href="#" onClick={handleDatoveTypyClick}>
@@ -53,18 +67,63 @@ const Sidebar = ({ setSelectedTopic }) => {
                 <li className="sidebar-item pod">
                   <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Tuple")}><p>Tuple</p></a>
                 </li>
-                {/* Pridajte ďalšie podtémy podľa potreby */}
               </ul>
             </div>
           )}
         </li>
 
-       
         <li className="sidebar-item">
           <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Operatory")}>Operátory</a>
         </li>
         <li className="sidebar-item">
-          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("List")}>List</a>
+          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Podmienky")}>Podmienky</a>
+        </li>
+
+        {/* Cyklus s úvodom a podtémy */}
+        <li className="sidebar-item">
+          <a className="sidebar-link expandable" href="#" onClick={handleCyklusClick}>
+            Cyklus
+          </a>
+          {isCyklusOpen && (
+            <div className="sub-menu">
+              <ul className="nav flex-column">
+                <li className="sidebar-item pod">
+                  <a className="sidebar-link pod" href="#" onClick={() => setSelectedTopic("For")}><p>For</p></a>
+                </li>
+                <li className="sidebar-item pod">
+                  <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("While")}><p>While</p></a>
+                </li>
+              </ul>
+            </div>
+          )}
+        </li>
+
+        {/* Nová téma "Pre študentov SPŠE" s podtémami */}
+        <li className="sidebar-item">
+          <a className="sidebar-link expandable" href="#" onClick={handleStudentiClick}>
+            Pre študentov SPŠE
+          </a>
+          {isStudentiOpen && (
+            <div className="sub-menu">
+              <ul className="nav flex-column">
+                <li className="sidebar-item pod">
+                  <a className="sidebar-link pod" href="#" onClick={() => setSelectedTopic("Prijímačky na SPŠE")}><p>Prijímačky na SPŠE</p></a>
+                </li>
+                <li className="sidebar-item pod">
+                  <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Študijné programy")}><p>Študijné programy</p></a>
+                </li>
+                <li className="sidebar-item pod">
+                  <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Organizácia štúdia")}><p>Organizácia štúdia</p></a>
+                </li>
+                <li className="sidebar-item pod">
+                  <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Aktivity pre študentov")}><p>Aktivity pre študentov</p></a>
+                </li>
+              </ul>
+            </div>
+          )}
+        </li>
+        <li className="sidebar-item">
+          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Markdown")}>Markodown</a>
         </li>
       </ul>
     </nav>
