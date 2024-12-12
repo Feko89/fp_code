@@ -18,12 +18,7 @@ const Sidebar = ({ setSelectedTopic }) => {
     setSelectedTopic("Cyklus");
   };
 
-  // Funkcia na prepínanie viditeľnosti podtémy "Pre študentov SPŠE" a nastavenie úvodu
-  const handleStudentiClick = () => {
-    setStudentiOpen(!isStudentiOpen);
-    setSelectedTopic("Pre študentov SPŠE");
-  };
-
+ 
   return (
     <nav id="sidebar" className="d-none d-md-block bg-light sidebar">
       <h4 className="text-center">Základy programovania</h4>
@@ -98,29 +93,8 @@ const Sidebar = ({ setSelectedTopic }) => {
           )}
         </li>
 
-        {/* Nová téma "Pre študentov SPŠE" s podtémami */}
         <li className="sidebar-item">
-          <a className="sidebar-link expandable" href="#" onClick={handleStudentiClick}>
-            Pre študentov SPŠE
-          </a>
-          {isStudentiOpen && (
-            <div className="sub-menu">
-              <ul className="nav flex-column">
-                <li className="sidebar-item pod">
-                  <a className="sidebar-link pod" href="#" onClick={() => setSelectedTopic("Prijímačky na SPŠE")}><p>Prijímačky na SPŠE</p></a>
-                </li>
-                <li className="sidebar-item pod">
-                  <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Študijné programy")}><p>Študijné programy</p></a>
-                </li>
-                <li className="sidebar-item pod">
-                  <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Organizácia štúdia")}><p>Organizácia štúdia</p></a>
-                </li>
-                <li className="sidebar-item pod">
-                  <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Aktivity pre študentov")}><p>Aktivity pre študentov</p></a>
-                </li>
-              </ul>
-            </div>
-          )}
+          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Pre studentov")}>Pre Studentov</a>
         </li>
         <li className="sidebar-item">
           <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Markdown")}>Markodown</a>

@@ -1535,6 +1535,45 @@ def pozdrav(): print("Ahoj svet")
 </>
 
 
+),"Pre studentov":(
+  <>
+  <h1>Pre Študentov</h1>
+<p>Kedže autori tejto stránky sú absolventi Strednej priemyselnej školy elektrotechnickej v Prešove rozhodli sme sa podeliť sa o rady a typi ktoré vám pomôžu sa uplnatniť a ešte viac zlepšovať v programovaní</p>
+
+<h2>Súťaže</h2>
+<p>Radi by sme vám ukázali na aké  súťaže sa na škole môžete zapojiť:</p>
+
+
+<h3>Zenit</h3>
+<p style={{ marginLeft: '5%' }}>Zenit je každoročná klasika na našej škole mnoho žiakov sa snaží získať čo najviac bodov na školských či krajských kolách.Sú až dve kategórie takže sa nemusíš obávať že hneď stretneš nejakého dobrého štvrtáka.<br></br>
+1. Kategória je A kde si merajú sily študenti tretieho a štvrtéjo ročníka<br></br>
+2. Kategória je B tam budeš pravdepobne patriť aj ty ak si prvák alebo druhák<br></br><br></br>
+<h4>Prečo súťažiť?</h4>
+Súťaz zenit je veľmi seriózna a vážená to sa odráža aj na finančných odmenách ktoré ťa určite potešia.Podmienkou je skončit v top 3 na školskom či krajskom kole.<br></br>
+Ďalšia motivácia môže byť že práve táto súťaž ťa môže dostať na rôzne univerzity ako Brno či Bratislava.</p>
+<h3>Codingame</h3>
+<p style={{ marginLeft: '5%' }}>Súťaž codin game je pre programátorov ktorý majú radi interaktívne rozhranie a radi by sa naučili nové spôsoby či algoritmi v programovaní. Stránka obsahuje mnoho postupovov návodov a vysvetliviek takže ak si len žačiatočník neváhaj a zapoj sa.<br></br><br></br>
+<h4>Prečo súťažiť?</h4>
+Počas nášho pôsobenia na škole sme stihli zažiť iba jeden ročník tejto súťaže. No čo nás prekvapilo je ako je táto súťaž hodnotená pri množstve kategórií ktoré vymyslel pán profesor P. V. je možné vyhrať celkom slušný obnos peňazí. Ak by sme túto informáciu malu predom ako vy určite by sme do súťaže vložili viac úsilia, no čo už teraz je rad práve na vás.
+</p>
+<h3>KSP</h3>
+<p style={{ marginLeft: '5%' }}>Súťaž KSP je hlavne pre žiakov ktorý maju dosť voľného času. Je to taký beh na dlhú trať kedže trvá niekoľko mesiacov ale určite sa pri nej zabavíte a vyriešite veľa zaujímavých úloh. Autori tejto sútaže spolupracujú aj s autormi súťaže ZENIT takže pre vás môže byť príprava.<br></br><br></br>
+<h4>Prečo súťažiť?</h4>
+Najúspešnejsí riešitelia dostanú pozvánku na programátorký tábor kde sa veľa nnaučíš a stretneš ďalších mladých programátorov ako si ty. Ďalším benefitom môže byť finančná odmena za účasť od našej školy.
+</p>
+<h3>Advent od code</h3>
+<p style={{ marginLeft: '5%' }}>Advent of code by sme ani nepovažovali ako sútaž sice sa môžeš porovnávať s ostnatnými žiakmi našej školy ale je to hlavne výzva. Čaká ťa maratón 24 úloh každý rok na Advent. Úlohy sú veľmi kreatívne a späté s vianočnou tématikou.<br></br>ako vyhrať?<br></br>Každé ráno počas adventu vstaň o 6:00 a urob úlohu čo najrýchlejšie<br></br><br></br>
+<h4>Prečo súťažiť?</h4>
+Ako sme spomínali toto nieje súťaž ale výzva takže odmenou ti bude len dobrý pocit z toho že si obehol učiteľa alebo kamaráta
+</p>
+<h3>KSI</h3>
+<p style={{ marginLeft: '5%' }}>Korešpondencný seminár z informatiky na našej škole nieje veľmi rozšírený teda za našich čias. Organizuje ho Masarykova Univerzita v Brne. Ponúka veľa úloh ktorých hlavnou úlohou je ťa naučiť programovať. Mali by ho zvládnuť aj žiaci ktorý nemali s programovaním žiadnu skúsenosť no my si to nemyslíme.<br></br><br></br>
+<h4>Prečo súťažiť?</h4>
+Kedže ho organizuje Masarykova Univerzita toto je práve cesta ako sa vyhnuť príjmačkám ak tam chceš iśť študovať. Na našej škole žiadne ceny nečakaj túto súťaž sme vám pridali iba my tvorcovia tejto stránky pretože sme si mysleli že by sa vám v štvrtom ročníku mohla hodiť.
+</p>
+
+
+</>
 )
 }
 
