@@ -204,3 +204,37 @@ app.put("/update-note/:id", authenticate, async (req, res) => {
 app.listen(5000, () => {
     console.log("Server running on port 5000");
 });
+app.get('/api/tests/status', async (req, res) => {
+    const { topic, userId } = req.query;
+  
+    // Predpokladám, že máš kolekciu používateľov
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+  
+    const isCompleted = user.completedTests?.includes(topic) || false;
+    res.json({ completed: isCompleted });
+  });
+
+  
+  app.post('/api/tests/complete', async (req, res) => {
+    const { topic, userId } = req.body;
+  
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+  
+    if (!user.completedTests) {
+      user.completedTests = [];
+    }
+  
+    if (!user.completedTests.includes(topic)) {
+      user.completedTests.push(topic);
+      await user.save();
+    }
+  
+    res.json({ success: true });
+  });
+  
