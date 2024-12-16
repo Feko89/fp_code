@@ -5,6 +5,17 @@ const connectDB = require("./db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+const topicsContent = {
+    "Úvod do programovania": [
+        { question: "Čo je programovanie?", options: ["A. Riešenie problémov", "B. Hranie hier", "C. Kreslenie"], answer: "A" },
+        { question: "Aký jazyk sa odporúča pre začiatočníkov?", options: ["A. C++", "B. Python", "C. Java"], answer: "B" }
+    ],
+    "Diagramy": [
+        { question: "Aký diagram zobrazuje tok procesu?", options: ["A. Vývojový", "B. Tried", "C. Sekvenčný"], answer: "A" },
+        { question: "Ktorý diagram zobrazuje komunikáciu?", options: ["A. Aktivita", "B. Sekvenčný", "C. Vývojový"], answer: "B" }
+    ]
+};
+
 const app = express();
 const JWT_SECRET = "your_jwt_secret_key"; // Pre bezpečnosť ulož do `.env`
 
@@ -43,7 +54,6 @@ app.get("/data", authenticate, async (req, res) => {
         if (client) client.close();
     }
 });
-    
 
 // Endpoint na pridanie poznámky
 app.post("/add-note", authenticate, async (req, res) => {
@@ -72,169 +82,79 @@ app.post("/add-note", authenticate, async (req, res) => {
     }
 });
 
+// Endpoint na kontrolu testov
+app.post("/api/tests/validate", authenticate, async (req, res) => {
+    const { topic, answers } = req.body;
 
-// Endpoint na registráciu
-app.post("/register", async (req, res) => {
-    const { name, surname, email, password } = req.body;
-
-    if (!email || !password) {
-        return res.status(400).send("Email and password are required");
+    // Vaša logika validácie odpovedí
+    const correctAnswers = topicsContent[topic]?.map((q) => q.answer);
+    if (!correctAnswers) {
+        return res.status(400).json({ error: "Invalid topic" });
     }
+
+    const totalQuestions = correctAnswers.length;
+    const correctCount = answers.filter((answer, i) => answer === correctAnswers[i]).length;
+    const successRate = Math.round((correctCount / totalQuestions) * 100);
 
     let client;
     try {
         client = await connectDB();
-        const collection = client.db("FP_Code").collection("Users");
+        const collection = client.db("FP_Code").collection("Tests");
 
-        // Skontroluj, či už email existuje
-        const existingUser = await collection.findOne({ email });
-        if (existingUser) {
-            return res.status(400).send("User already exists");
-        }
-
-        // Hashuj heslo
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Ulož nového používateľa
-        const result = await collection.insertOne({
-            name,
-            surname,
-            email,
-            password: hashedPassword,
+        await collection.insertOne({
+            userId: req.userId,
+            topic,
+            successRate,
+            createdAt: new Date(),
         });
-        res.status(201).send({ userId: result.insertedId });
+
+        res.json({ successRate, message: "Test submitted successfully" });
     } catch (error) {
-        console.error("Error registering user:", error);
-        res.status(500).send("Error registering user");
+        console.error("Error saving test:", error);
+        res.status(500).json({ error: "Failed to save test" });
     } finally {
         if (client) client.close();
     }
 });
 
-// Endpoint na prihlásenie
-app.post("/login", async (req, res) => {
-    const { email, password } = req.body;
-
-    if (!email || !password) {
-        return res.status(400).send("Email and password are required");
-    }
-
+// Endpoint na získanie výsledkov
+app.get("/api/tests/results", authenticate, async (req, res) => {
     let client;
     try {
         client = await connectDB();
-        const collection = client.db("FP_Code").collection("Users");
+        const collection = client.db("FP_Code").collection("Tests");
 
-        // Nájdeme používateľa
-        const user = await collection.findOne({ email });
-        if (!user) {
-            return res.status(401).send("Invalid email or password");
-        }
-
-        // Overíme heslo
-        const isPasswordValid = await bcrypt.compare(password, user.password);
-        if (!isPasswordValid) {
-            return res.status(401).send("Invalid email or password");
-        }
-
-        // Generuj JWT token
-        const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: "1h" });
-        res.send({ token });
+        const results = await collection.find({ userId: req.userId }).toArray();
+        res.json({ results });
     } catch (error) {
-        console.error("Error logging in user:", error);
-        res.status(500).send("Error logging in user");
+        console.error("Error fetching test results:", error);
+        res.status(500).send("Error fetching test results");
     } finally {
         if (client) client.close();
     }
 });
 
-
-app.delete("/delete-note/:id", authenticate, async (req, res) => {
-    const { id } = req.params;
-
+// Endpoint na posledný test
+app.get("/api/tests/last", authenticate, async (req, res) => {
     let client;
     try {
         client = await connectDB();
-        const collection = client.db("FP_Code").collection("Notes");
-        const result = await collection.deleteOne({ _id: new require("mongodb").ObjectId(id), userId: req.userId });
+        const collection = client.db("FP_Code").collection("Tests");
 
-        if (result.deletedCount === 0) {
-            return res.status(404).send("Note not found");
+        const lastTest = await collection.find({ userId: req.userId }).sort({ createdAt: -1 }).limit(1).toArray();
+        if (!lastTest || lastTest.length === 0) {
+            return res.status(404).json({ successRate: null, message: "No test results found" });
         }
 
-        res.status(200).send("Note deleted");
+        res.json({ successRate: lastTest[0].successRate, message: "Last test result retrieved" });
     } catch (error) {
-        console.error("Failed to delete note:", error);
-        res.status(500).send("Error deleting note");
+        console.error("Error fetching last test result:", error);
+        res.status(500).json({ error: "Server error" });
     } finally {
         if (client) client.close();
     }
 });
-
-app.put("/update-note/:id", authenticate, async (req, res) => {
-    const { id } = req.params;
-    const { title, content } = req.body;
-
-    if (!title || !content) {
-        return res.status(400).send("Title and content are required");
-    }
-
-    let client;
-    try {
-        client = await connectDB();
-        const collection = client.db("FP_Code").collection("Notes");
-        const result = await collection.updateOne(
-            { _id: new require("mongodb").ObjectId(id), userId: req.userId },
-            { $set: { title, content, updatedAt: new Date() } }
-        );
-
-        if (result.matchedCount === 0) {
-            return res.status(404).send("Note not found");
-        }
-
-        res.status(200).send("Note updated");
-    } catch (error) {
-        console.error("Failed to update note:", error);
-        res.status(500).send("Error updating note");
-    } finally {
-        if (client) client.close();
-    }
-});
-
 
 app.listen(5000, () => {
     console.log("Server running on port 5000");
 });
-app.get('/api/tests/status', async (req, res) => {
-    const { topic, userId } = req.query;
-  
-    // Predpokladám, že máš kolekciu používateľov
-    const user = await User.findById(userId);
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-  
-    const isCompleted = user.completedTests?.includes(topic) || false;
-    res.json({ completed: isCompleted });
-  });
-
-  
-  app.post('/api/tests/complete', async (req, res) => {
-    const { topic, userId } = req.body;
-  
-    const user = await User.findById(userId);
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-  
-    if (!user.completedTests) {
-      user.completedTests = [];
-    }
-  
-    if (!user.completedTests.includes(topic)) {
-      user.completedTests.push(topic);
-      await user.save();
-    }
-  
-    res.json({ success: true });
-  });
-  
