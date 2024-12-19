@@ -36,7 +36,11 @@ const Ucivo = () => {
       <div className="content-container">
         <Content selectedTopic={selectedTopic} />
         {topicsContent[selectedTopic] ? (
-          <Test topic={selectedTopic} questions={topicsContent[selectedTopic]} />
+        <Test
+          key={selectedTopic} // Pridanie unikátneho kľúča pre každý výber témy
+          topic={selectedTopic}
+          questions={topicsContent[selectedTopic]}
+        />
         ) : (
           <p>Otázky nie sú k dispozícii.</p>
         )}

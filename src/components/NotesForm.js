@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import "./NotesForm.css";
 
 const NotesForm = () => {
@@ -147,7 +148,7 @@ const NotesForm = () => {
         {notes.map((note) => (
           <li className="note-item" key={note._id}>
             <h3>{note.title}</h3>
-            <ReactMarkdown>{note.content}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{note.content}</ReactMarkdown>
             <div className="note-actions">
               <button
                 className="form-button edit-button"

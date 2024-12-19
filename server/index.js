@@ -5,8 +5,6 @@ const connectDB = require("./db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-<<<<<<< Updated upstream
-=======
 const topicsContent = {
     "Úvod do programovania": [
       { question: "Čo je programovanie?", options: ["A. Riešenie problémov", "B. Hranie hier", "C. Kreslenie"], answer: "A" },
@@ -29,7 +27,6 @@ const topicsContent = {
     ]
   };
 
->>>>>>> Stashed changes
 const app = express();
 const JWT_SECRET = "your_jwt_secret_key"; // Pre bezpečnosť ulož do .env
 
@@ -159,83 +156,6 @@ app.post("/add-note", authenticate, async (req, res) => {
   }
 });
 
-<<<<<<< Updated upstream
-
-// Endpoint na registráciu
-app.post("/register", async (req, res) => {
-    const { name, surname, email, password } = req.body;
-
-    if (!email || !password) {
-        return res.status(400).send("Email and password are required");
-    }
-
-    let client;
-    try {
-        client = await connectDB();
-        const collection = client.db("FP_Code").collection("Users");
-
-        // Skontroluj, či už email existuje
-        const existingUser = await collection.findOne({ email });
-        if (existingUser) {
-            return res.status(400).send("User already exists");
-        }
-
-        // Hashuj heslo
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Ulož nového používateľa
-        const result = await collection.insertOne({
-            name,
-            surname,
-            email,
-            password: hashedPassword,
-        });
-        res.status(201).send({ userId: result.insertedId });
-    } catch (error) {
-        console.error("Error registering user:", error);
-        res.status(500).send("Error registering user");
-    } finally {
-        if (client) client.close();
-    }
-});
-
-// Endpoint na prihlásenie
-app.post("/login", async (req, res) => {
-    const { email, password } = req.body;
-
-    if (!email || !password) {
-        return res.status(400).send("Email and password are required");
-    }
-
-    let client;
-    try {
-        client = await connectDB();
-        const collection = client.db("FP_Code").collection("Users");
-
-        // Nájdeme používateľa
-        const user = await collection.findOne({ email });
-        if (!user) {
-            return res.status(401).send("Invalid email or password");
-        }
-
-        // Overíme heslo
-        const isPasswordValid = await bcrypt.compare(password, user.password);
-        if (!isPasswordValid) {
-            return res.status(401).send("Invalid email or password");
-        }
-
-        // Generuj JWT token
-        const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: "1h" });
-        res.send({ token });
-    } catch (error) {
-        console.error("Error logging in user:", error);
-        res.status(500).send("Error logging in user");
-    } finally {
-        if (client) client.close();
-    }
-});
-
-
 app.delete("/delete-note/:id", authenticate, async (req, res) => {
     const { id } = req.params;
 
@@ -289,7 +209,6 @@ app.put("/update-note/:id", authenticate, async (req, res) => {
 });
 
 
-=======
 // Endpoint na validáciu testu
 app.post("/api/tests/validate", (req, res) => {
   const { topic, answers } = req.body;
@@ -307,45 +226,7 @@ app.post("/api/tests/validate", (req, res) => {
 });
 
 // Spustenie servera
->>>>>>> Stashed changes
 app.listen(5000, () => {
   console.log("Server running on port 5000");
 });
-<<<<<<< Updated upstream
-app.get('/api/tests/status', async (req, res) => {
-    const { topic, userId } = req.query;
-  
-    // Predpokladám, že máš kolekciu používateľov
-    const user = await User.findById(userId);
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-  
-    const isCompleted = user.completedTests?.includes(topic) || false;
-    res.json({ completed: isCompleted });
-  });
-
-  
-  app.post('/api/tests/complete', async (req, res) => {
-    const { topic, userId } = req.body;
-  
-    const user = await User.findById(userId);
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-  
-    if (!user.completedTests) {
-      user.completedTests = [];
-    }
-  
-    if (!user.completedTests.includes(topic)) {
-      user.completedTests.push(topic);
-      await user.save();
-    }
-  
-    res.json({ success: true });
-  });
-  
-=======
     
->>>>>>> Stashed changes
