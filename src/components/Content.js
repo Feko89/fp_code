@@ -1021,7 +1021,7 @@ index = moj_tuple.index(3)  # &#123;2&#125;
 
 <h2>Prečo sú tuple dôležité?</h2>
 <p>Tuple sú vhodné na uchovávanie dát, ktoré by sa nemali meniť počas vykonávania programu. Ich nezmeniteľnosť poskytuje väčšiu bezpečnosť a efektívnosť pri práci s dátami, a sú využívané tam, kde je požiadavka na nemennosť údajov (napr. kľúče v dictionary).</p>
-</>),"Operatory":(
+</>),"Operátory":(
   <>
   <h1>Operátory</h1>
   <p><strong>Operátory</strong> v programovaní sú špeciálne symboly alebo kľúčové slová, ktoré umožňujú vykonávať operácie nad hodnotami alebo premennými. Python podporuje množstvo rôznych typov operátorov.</p>
