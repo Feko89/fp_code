@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
-import logo from "./logo.png";
+import logo from "./logo_fpcode.png";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -51,22 +51,7 @@ const Header = () => {
                                         Poznámky
                                     </Link>
                                 </li>
-                                <li className="nav-item dropdown">
-                                    <a
-                                        className="nav-link dropdown-toggle"
-                                        href="#"
-                                        role="button"
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
-                                    >
-                                        Uč sa
-                                    </a>
-                                    <ul className="dropdown-menu">
-                                        <li><a className="dropdown-item" href="#">Akcia</a></li>
-                                        <li><a className="dropdown-item" href="#">Iná akcia</a></li>
-                                        <li><a className="dropdown-item" href="#">Niečo iné</a></li>
-                                    </ul>
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>
