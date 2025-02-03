@@ -1,9 +1,9 @@
 header {
-    background-color:  #282828;
+    background-color:  #282828 !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: black;
+    color: whitesmoke;
     height: 100px;
     border-bottom: 2px solid black;
    
@@ -28,21 +28,21 @@ header {
 .header-title {
     font-size: 2.5rem;
 
-    color:black;
+    color:whitesmoke !important;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /* Navigácia */
-hr{color: black;}
+hr{color: whitesmoke !important;}
 .nav-item a:hover {
     background-color: #555;
-    color: white;
+    color: white !important;
 }
 
 /* Login */
 .header-login a {
     font-size: 1.5rem;
-    color: black;
+    color: whitesmoke !important;
     text-decoration: none;
     padding: 10px 20px;
     border: 2px solid black;
@@ -67,10 +67,32 @@ hr{color: black;}
 .navbar-nav{
     width: 100%;
     display: flex;
+    background-color: #282828;
 }
 .nav-item{
-  color: #333;
+  color: whitesmoke !important;
   font-weight: 500;
   transition: color 0.3s;
 }
 
+/* Prepíšeme všetky možné varianty Bootstrap navigácie */
+.navbar,
+.navbar.bg-body-tertiary,
+.navbar-expand-lg,
+.navbar-expand-lg.bg-body-tertiary,
+nav.bg-body-tertiary,
+header.bg-body-tertiary,
+.bg-body-tertiary {
+    background-color: #282828 !important;
+    --bs-bg-opacity: 1;
+    --bs-tertiary-bg-rgb: 40, 40, 40;  /* RGB hodnoty pre #282828 */
+}
+
+/* Zabezpečíme, že aj container v navigácii bude mať správnu farbu */
+.container-fluid {
+    background-color: #282828 !important;
+}
+.navbar-expand-lg .navbar-nav .nav-link{
+    color: whitesmoke;
+}
+    
