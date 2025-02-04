@@ -9,8 +9,10 @@ header {
     height: 80px !important;
     border: 2px solid rgb(56, 56, 56);
     position:fixed;
+   
     border-radius: 20px;
-    justify-content: center !important;
+    justify-content: space-between !important;
+
    
 }
 
@@ -18,7 +20,7 @@ header {
 .header-content {
     display: flex;
     text-decoration: none;
- 
+  
     height: 100%;
     gap: 0px !important;
     align-items: center;
@@ -40,13 +42,14 @@ header {
 /* Navigácia */
 hr{color: whitesmoke !important;}
 .nav-item a:hover {
-    background-color: #555;
+    background-color:  #282828 !important;
     color: white !important;
 }
 
 /* Login */
 .header-login{
     margin-right: 5px;
+ 
 }
 .header-login a {
     font-size: 1.5rem;
@@ -66,8 +69,9 @@ hr{color: whitesmoke !important;}
     width: 50rem;
 }
 .head-con-second{
-    margin-right: 0px !important;
-    width: 50% !important;
+    margin-right: 10% !important;
+    width: 40% !important;
+    
 }
 .nav-item{
     flex: 1;
@@ -79,9 +83,11 @@ hr{color: whitesmoke !important;}
     background-color: #282828;
 }
 .nav-item{
-  color: whitesmoke !important;
+  color: rgb(86, 86, 86) !important;
   font-weight: 500;
   transition: color 0.3s;
+  font-family: "Montserrat" !important;
+
 }
 
 /* Prepíšeme všetky možné varianty Bootstrap navigácie */
@@ -102,7 +108,7 @@ header.bg-body-tertiary,
     background-color: #282828 !important;
 }
 .navbar-expand-lg .navbar-nav .nav-link{
-    color: whitesmoke;
+    color: rgb(161, 161, 161);
   
 }
     

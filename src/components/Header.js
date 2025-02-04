@@ -38,17 +38,17 @@ const Header = () => {
                             <ul className="navbar-nav">
                                 <li className="nav-item">
                                     <Link to="/home" className="nav-link">
-                                        Domov
+                                        DOMOV
                                     </Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link to="/ucivo" className="nav-link">
-                                        Učivo
+                                        UČIVO
                                     </Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link to="/notes" className="nav-link">
-                                        Poznámky
+                                        POZNÁMKY
                                     </Link>
                                 </li>
                                 
