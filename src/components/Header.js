@@ -56,7 +56,9 @@ const Header = () => {
                         </div>
                     </div>
                 </nav>
-                <div className="header-login">
+               
+            </div>
+            <div className="header-login">
                     {isLoggedIn ? (
                         <>
                             <button className="btn btn-danger" onClick={handleLogout}>
@@ -69,7 +71,6 @@ const Header = () => {
                         </Link>
                     )}
                 </div>
-            </div>
         </header>
     );
 };

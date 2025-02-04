@@ -1,11 +1,16 @@
 header {
     background-color:  #282828 !important;
     display: flex;
-    justify-content: space-between;
+    margin-top: 5px;
     align-items: center;
+    width: 98%;
+    margin-left: 1%;
     color: whitesmoke;
-    height: 100px;
-    border-bottom: 2px solid black;
+    height: 80px !important;
+    border: 2px solid rgb(56, 56, 56);
+    position:fixed;
+    border-radius: 20px;
+    justify-content: center !important;
    
 }
 
@@ -13,23 +18,23 @@ header {
 .header-content {
     display: flex;
     text-decoration: none;
-    width: auto;
+ 
     height: 100%;
-    gap: 10px;
+    gap: 0px !important;
     align-items: center;
 }
 
 .header-logo {
-    width: auto;
-    height: 100%;
+    width: 80px !important;
+    height: auto !important;
     margin-right: 20px;
 }
 
 .header-title {
-    font-size: 2.5rem;
+    font-size: 2rem !important;
 
     color:whitesmoke !important;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Montserrat" !important;
 }
 
 /* Navigácia */
@@ -40,6 +45,9 @@ hr{color: whitesmoke !important;}
 }
 
 /* Login */
+.header-login{
+    margin-right: 5px;
+}
 .header-login a {
     font-size: 1.5rem;
     color: whitesmoke !important;
@@ -58,7 +66,8 @@ hr{color: whitesmoke !important;}
     width: 50rem;
 }
 .head-con-second{
-    margin-right: 20px;
+    margin-right: 0px !important;
+    width: 50% !important;
 }
 .nav-item{
     flex: 1;
@@ -94,5 +103,11 @@ header.bg-body-tertiary,
 }
 .navbar-expand-lg .navbar-nav .nav-link{
     color: whitesmoke;
+  
 }
     
+.navbar, .navbar.bg-body-tertiary, .navbar-expand-lg, .navbar-expand-lg.bg-body-tertiary, nav.bg-body-tertiary, header.bg-body-tertiary, .bg-body-tertiary{
+  
+   
+    margin-left: 0% !important;
+}
