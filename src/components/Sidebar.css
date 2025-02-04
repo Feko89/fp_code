@@ -1,15 +1,16 @@
 #sidebar {
     width: 250px;
-    background-color: #f8f9fa;
+    background-color:  #282828 !important;
     padding-top: 20px;
 }
 #sidebar .sidebar-link {
-    color: #333;
+    color: rgb(174, 174, 174) !important;
 }
 #sidebar .sidebar-link:hover {
     background-color: #555;
-    color: white;
+    color: rgb(0, 0, 0) !important;
 }
+
 .collapse>a{
     padding-left: 30p;
 }
@@ -53,4 +54,10 @@
     padding: 0px;
     padding-left: 10px;
     height: auto;
+}
+text-center{
+    color: white !important;
+}
+h4{
+    color: white;
 }

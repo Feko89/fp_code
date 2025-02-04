@@ -21,7 +21,9 @@ body {
     background-color: rgb(0, 0, 0);
     background-image: url("python-Background.jpg");
    
-    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Toto vytvorí parallax efekt */
     background-repeat: no-repeat;  /* Zakáže opakovanie */
     background-position: center; /* Zarovná obrázok hore do stredu */
     background-size: 50%; /* Rozťahne na celú šírku a výšku divka, aj keď sa oreže */
@@ -39,7 +41,7 @@ body {
 }
 .uvod-text{
     width: 40%;
-    text-align: center;
+    text-align: left !important ;
 
     margin-left: 30%;
     height: auto;
@@ -65,6 +67,7 @@ body {
 }
 .uvod-buttons>a>button{
     border-radius: 0px;
+    border: 2px outset #ff6550;
     height: 60px;
     width: 100%;
     color: whitesmoke;
@@ -75,7 +78,7 @@ body {
     overflow: hidden;
     z-index: 1;
     transition: color 0.3s ease;
-    border: none;
+   
     cursor: pointer;
 }
 .uvod-buttons>a>button::before {
@@ -123,10 +126,8 @@ body {
 .section-2{
     width: 100%;
     height: 100vh;
-    background-image: url('background.jpg'); /* Nahraď cestou k svojmu obrázku */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Toto vytvorí parallax efekt */
+    background-color: rgb(54, 54, 54);
+    box-shadow: inset 0px 0px 35px 0px rgba(0, 0, 0, 0.75);
 }
 
 
@@ -141,16 +142,20 @@ body {
     padding-top: 100px;
     padding-bottom: 100px;
     font-family: "Montserrat";
+    color: rgb(142, 142, 142) !important;
 
 }
 .onas-nadpis{
     font-size: 3rem;
+    text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);;
     font-family: "Montserrat";
+    color: rgb(193, 193, 193) !important;
 
 }
 .onas-textik{
     margin-top: 100px;
     font-size: 1.6rem;
+    color: rgb(141, 141, 141) !important;
 }
 
 /* Príklady použitia: */
@@ -169,4 +174,170 @@ body {
 
 .light-text {
     font-weight: 300; /* light */
+}
+.img-lamp{
+   
+}
+.lampa {
+    height: auto;
+    position: absolute;
+    width: 200px;
+    margin-left: 70%;;
+    filter: drop-shadow(0px 20px 50px rgba(255, 255, 100, 1));  
+}
+.python{
+    height: auto;
+    position: absolute;
+    width: 200px;
+    margin-left: 70%;
+    margin-top: 40vh;
+}
+
+/* Prepíšeme Bootstrap štýly s vyššou špecificitou */
+h4.text-center,
+.text-center {
+    color: white !important;
+}
+
+/* Pre istotu pridáme aj špecifickejší selektor */
+.section-1 h4,
+.section-2 h4 {
+    color: white !important;
+}
+
+/* Ak by to stále nefungovalo, môžeme použiť ešte špecifickejší selektor */
+.uvod-con h4,
+.onas-con h4 {
+    color: white !important;
+}
+
+.white-heading {
+    color: white !important;
+}
+.section-3{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(54, 54, 54);
+    box-shadow: inset 0px -22px 29px -14px rgba(0,0,0,1);
+
+}
+.ktosme-text{
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+    padding-top: 60px;
+    padding-bottom: 100px;
+    font-family: "Montserrat";
+    color: rgb(142, 142, 142) !important;
+    justify-content: space-between;
+
+}
+.ktosme-nadpis{
+    font-size: 3rem;
+    padding-top: 20px;
+    text-align: center;
+    text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);;
+    font-family: "Montserrat";
+    color: rgb(193, 193, 193) !important;
+
+}
+.ktosme-textik1{
+
+    margin-top: 80px;
+    width: 300px;
+    height: 300px;
+    z-index: 200;
+    font-size: 1.6rem;
+    background-image: url("kubko.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;  /* Zakáže opakovanie */
+    background-position: center; /* Zarovná obrázok hore do stredu */
+    border-radius: 500px;
+    color: rgb(141, 141, 141) !important;
+}
+.spse-po{
+    border-radius: 100%;
+    width: 300px;
+    z-index: 200;
+    height: 300px;
+    margin-top: 80px;
+}
+.ktosme-textik2{
+    z-index: 200;
+    margin-top: 80px;
+    width: 300px;
+    height: 300px;
+    background-color: #333;
+    border-radius: 500px;
+    font-size: 1.6rem;
+    color: rgb(141, 141, 141) !important;
+}
+.ktosme-textik2>h2{
+
+    text-align: center;
+    margin-top: 200px;
+     
+    color: #f4f4f4 !important;
+}
+.ktosme-textik1>h2{
+
+    text-align: center;
+    color: #f4f4f4 !important;
+
+    margin-top: 200px;
+}
+.textiky{
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    justify-content: space-between;
+}
+.text-kto{
+    font-size: 25px;
+    color: white;
+    text-align: center;
+    margin-top: 120px;
+    position: relative;
+    width: 90%;
+    margin-left: 5%;
+    z-index: 100 !important;
+}
+.arr1{
+    position: absolute;
+    width: 100px;
+    margin-left: 1000px;
+   
+    transform: scaleX(-1) rotate(270deg);
+}
+.arr2{
+    position: absolute;
+    margin-left: 350px;
+    width: 100px;
+    transform: rotate(270deg); /* Otočí o 45 stupňov */
+}
+.crown1{
+    width: 150px;
+    margin-top: 35px;
+    margin-left: 100px;
+    transform: rotate(-10deg); /* Otočí o 45 stupňov */
+    position: absolute;
+    z-index: 250;
+    filter: invert(1);
+}
+.crown2{
+    width: 150px;
+    margin-top: 35px;
+    margin-left: 83%;
+    position: absolute;
+    z-index: 250;
+    filter: invert(1);
+    transform: scaleX(-1)  rotate(-10deg);
+}
+
+.carpet{
+    position: absolute;
+    margin-left: 30%;
+    z-index: 1;
+    width: 600px;
+    margin-top: 100px;
 }
