@@ -62,8 +62,8 @@ footer{
     text-align: center;
 }
 .logo-foot{
-    height: 400px;
-    width: 400px !important;
+    height: 25%;
+    width: 25% !important;
     margin-left: 0% !important;
     margin-top: 80px;
     clip-path: inset(0 0 50px 0)
@@ -72,7 +72,8 @@ footer{
 .but-fut{
     border-radius: 0px;
     height: 60px;
-    width: 200px;
+    width: 100%;
+    border-radius: 500px;
     color: whitesmoke;
     background-color: #313C4E;
     font-family: 'Montserrat', sans-serif;
@@ -109,4 +110,111 @@ footer{
 
 .but-fut:hover {
     color: white;
+}
+
+
+.clicky {
+    position: absolute;
+    width: 50px;
+    filter: invert(1);
+    z-index: 5;
+    margin-top: 280px;
+    margin-left: 50px;
+    animation: circular-motion 3s linear infinite;
+}
+
+@keyframes circular-motion {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    25% {
+        transform: translate(20px, 10px);
+    }
+    50% {
+        transform: translate(0px, 20px);
+    }
+    75% {
+        transform: translate(-20px, 10px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+@media (max-width: 950px) {
+    .foot-inf{
+        flex-direction: column;
+        align-items: center;
+    }
+    .pomoc{
+        margin-top: 0px !important;
+    }
+    .clicky{
+        margin-top: 260px;
+    }
+    .logo-foot{
+        margin-top: 50px;
+    }
+}
+@media (max-width: 750px) {
+    .foot-con{
+        height: 300px;
+        margin-top: 50px;
+    }
+    .copy-r{
+        padding-top: 0px !important;
+    }
+    .clicky{
+        margin-top: 180px;
+    }
+    .logo-foot{
+        clip-path: inset(0 0 60px 0)
+    }
+}
+@media (max-width: 550px) {
+    .logo-foot{
+        clip-path: inset(0 0 50px 0)
+    }
+}
+@media (max-width: 490px) {
+    .logo-foot{
+        clip-path: inset(0 0 40px 0)
+    }
+}
+@media (max-width: 430px) {
+    .foot-grid{
+        justify-content: space-between;
+        gap:10%;
+        width: 90%;
+        margin-left: 5%;
+    }
+    .foot-grid-dva{
+        width: 100%;
+        gap: 0px;
+        justify-content: space-between;
+    }
+    .foot-grid-dva>h1{
+        width: auto !important;
+    }
+}
+@media (max-width: 370px) {
+    .foot-grid-dva{
+        flex-direction: column !important;
+    }
+    .foot-con{
+        height: auto;
+    }
+    .foot-grid-dva{
+        gap:20px;
+        align-items: center;
+        text-align: center;
+    }
+    .foot-grid{
+        margin-top: 10px;
+    }
+    .logo-foot{
+        width: 60% !important;
+    }
+    .pomoc{
+        margin-top: 20px !important;
+    }
 }

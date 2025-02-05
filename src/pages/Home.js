@@ -7,6 +7,7 @@ import spsepo from './spse-po.png'; // Zmenená cesta, keďže obrázok je v rov
 import arr from './arrow-removebg-preview.png'; // Zmenená cesta, keďže obrázok je v rovnakom priečinku
 import crown from './crown1-removebg-preview.png'; // Zmenená cesta, keďže obrázok je v rovnakom priečink
 import carpet from './carpez.png'; // Zmenená cesta, keďže obrázok je v rovnakom priečink
+import click from "./click.png";
 
 
 
@@ -35,10 +36,12 @@ const Home = () => {
       <div className="section-1">
         <div className="uvod-con">
           <div className="uvod-text">
-            <h1 className="uvod-Nadpis">Nauc sa programovat</h1>
+            <h1 className="uvod-Nadpis">&lt;Nauc sa programovat&gt;</h1>
             <h2 className="uvod-podNadpis">a ukladaj si svoje poznamky</h2>
           </div>
           <div className="uvod-buttons">
+          <img src={click} alt='click' class="click"></img>
+
             <Link to="/ucivo">
               <button>
                 Zacni sa ucit!

@@ -5,6 +5,7 @@ import logo from "./logo_fpcode.png";
 
 const Header = () => {
     const navigate = useNavigate();
+    const [isOpen, setIsOpen] = useState(false);
 
     // Skontrolujeme prihlásenie podľa prítomnosti tokenu
     const isLoggedIn = Boolean(localStorage.getItem("token"));
@@ -14,9 +15,17 @@ const Header = () => {
         navigate("/login"); // Presmeruje na prihlasovaciu stránku
     };
 
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const closeMenu = () => {
+        setIsOpen(false);
+    };
+
     return (
         <header>
-            <Link to="/" className="header-content">
+            <Link to="/" className="header-content" onClick={closeMenu}>
                 <img src={logo} alt="logo" className="header-logo" />
                 <h1 className="header-title">FP code</h1>
             </Link>
@@ -26,37 +35,33 @@ const Header = () => {
                         <button
                             className="navbar-toggler"
                             type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#navbarNavDropdown"
-                            aria-controls="navbarNavDropdown"
-                            aria-expanded="false"
+                            onClick={toggleMenu}
+                            aria-expanded={isOpen}
                             aria-label="Toggle navigation"
                         >
                             <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                        <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`}>
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <Link to="/home" className="nav-link">
-                                        DOMOV
+                                    <Link to="/" className="nav-link" onClick={closeMenu}>
+                                        Domov
                                     </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/ucivo" className="nav-link">
+                                    <Link to="/ucivo" className="nav-link" onClick={closeMenu}>
                                         UČIVO
                                     </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/notes" className="nav-link">
+                                    <Link to="/notes" className="nav-link" onClick={closeMenu}>
                                         POZNÁMKY
                                     </Link>
                                 </li>
-                                
                             </ul>
                         </div>
                     </div>
                 </nav>
-               
             </div>
             <div className="header-login">
                     {isLoggedIn ? (

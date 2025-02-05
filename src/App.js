@@ -9,9 +9,11 @@ import Poznamky from './pages/Notes';
 import Register from './pages/Register';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import ScrollToTop from './components/ScrollToTop';
 
 const App = () => (
   <Router>
+    <ScrollToTop />
     <Header />
     <Routes>
       <Route path="/" element={<Home />} />
@@ -24,8 +26,5 @@ const App = () => (
     <Footer />
   </Router>
 );
-
-
-
 
 export default App;

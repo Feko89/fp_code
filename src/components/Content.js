@@ -1574,6 +1574,81 @@ Kedže ho organizuje Masarykova Univerzita toto je práve cesta ako sa vyhnuť p
 
 
 </>
+),
+"tahak":(
+  <>
+  <h1>Rýchly Ťaháčik</h1>
+  <br></br>
+  <br></br>
+  <h4>Vstup</h4>
+    <code>
+x=input()  # zo vstupu zapiše do premennej x<br></br>
+    </code>
+  <h4>Výpis na obrazovku</h4>
+    <code>
+print("Hello, world!")  # Vypíše text na obrazovku
+    </code>
+
+    <h4>Premenné</h4>
+    <code>
+x = 10  # Celé číslo<br></br>
+y = 3.14  # Desatinné číslo<br></br>
+meno = "Jozef"  # Reťazec (string)<br></br>
+print(meno)  # Vypíše "Jozef"
+    </code>
+
+    <h4>Podmienky</h4>
+    <code>
+vek = 18<br></br>
+if vek  &gt;= 18:<br></br>
+&nbsp;&nbsp;&nbsp; print("Si dospelý.")<br></br>
+else:<br></br>
+&nbsp;&nbsp;&nbsp;   print("Nie si dospelý.")<br></br>
+    </code>
+
+
+    <h5>For cyklus</h5>
+    <code>
+for i in range(5):<br></br>
+&nbsp;&nbsp;&nbsp;   print(i)  # Vypíše čísla od 0 do 4<br></br>
+    </code>
+
+    <h5>While cyklus</h5>
+    <code>
+x = 0<br></br>
+while x  &lt; 5:<br></br>
+&nbsp;&nbsp;&nbsp;   print(x)<br></br>
+&nbsp;&nbsp;&nbsp;   x += 1<br></br>
+    </code>
+
+    <h4>Funkcie</h4>
+    <code>
+def pozdrav(meno):<br></br>
+&nbsp;&nbsp;&nbsp;    print("Ahoj, " + meno + "!")<br></br>
+    <br></br>
+pozdrav("Jozef")  # Vypíše "Ahoj, Jozef!"<br></br>
+    </code>
+
+    <h4>Zoznamy (list)</h4>
+    <code>
+cisla = [1, 2, 3, 4, 5]<br></br>
+print(cisla[0])  # Prvý prvok (1)<br></br>
+cisla.append(6)  # Pridá číslo 6 do zoznamu<br></br>
+    </code>
+
+    <h4>Slovníky (dictionary)</h4>
+    <code>
+osoba = &lbrace;"meno": "Jozef", "vek": 25&rbrace;<br></br>
+print(osoba["meno"])  # Vypíše "Jozef"<br></br>
+    </code>
+
+    <h4>Práca so súbormi</h4>
+    <code>
+with open("subor.txt", "w") as subor:<br></br>
+&nbsp;&nbsp;&nbsp;   subor.write("Toto je uložený text.")<br></br>
+    </code>
+
+</>
 )
 }
 

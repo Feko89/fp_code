@@ -99,6 +99,9 @@ const Sidebar = ({ setSelectedTopic }) => {
         <li className="sidebar-item">
           <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Markdown")}>Markdown</a>
         </li>
+        <li className="sidebar-item">
+          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("tahak")}>Ťaháčik</a>
+        </li>
       </ul>
     </nav>
   );

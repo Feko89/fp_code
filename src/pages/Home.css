@@ -17,17 +17,16 @@ body {
 .section-1{
     color: whitesmoke;
     width: 100%;
-    height: auto;
-    background-color: rgb(0, 0, 0);
-    background-image: url("python-Background.jpg");
+    height: 100vh;
+    background-image: url("pozadie_uni.avif");
    
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Toto vytvorí parallax efekt */
     background-repeat: no-repeat;  /* Zakáže opakovanie */
     background-position: center; /* Zarovná obrázok hore do stredu */
-    background-size: 50%; /* Rozťahne na celú šírku a výšku divka, aj keď sa oreže */
-}
+    background-size: 100% 100%;
+padding-top: 250px !important;}
 .uvod-con{
     display: flex;
     justify-content: space-around;
@@ -53,6 +52,10 @@ body {
 }
 .uvod-Nadpis{
     font-size: 4rem;
+}
+.uvod-podNadpis{
+    font-size: 3.5rem;
+    color: rgb(255, 255, 255) !important;
 }
 .uvod-text>h1{
     font-size: 5rem;
@@ -225,7 +228,7 @@ h4.text-center,
     width: 90%;
     height: auto;
     margin-left: 5%;
-    padding-top: 60px;
+    padding-top: 80px;
     padding-bottom: 100px;
     font-family: "Montserrat";
     color: rgb(142, 142, 142) !important;
@@ -238,15 +241,16 @@ h4.text-center,
     text-align: center;
     text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);;
     font-family: "Montserrat";
-    color: rgb(193, 193, 193) !important;
+    color: rgb(255, 255, 255) !important;
 
 }
 .ktosme-textik1{
 
     margin-top: 80px;
-    width: 300px;
-    height: 300px;
+    width: 20%;
     z-index: 200;
+    height: 20%; /* Rovnaká výška ako šírka */
+    aspect-ratio: 1 / 1; /* Poměr šířky a výšky bude 1:1 */
     font-size: 1.6rem;
     background-image: url("kubko.jpg");
     background-size: cover;
@@ -257,25 +261,32 @@ h4.text-center,
 }
 .spse-po{
     border-radius: 100%;
-    width: 300px;
+    width: 20%;
+    height: calc(20%); 
     z-index: 200;
-    height: 300px;
     margin-top: 80px;
 }
 .ktosme-textik2{
     z-index: 200;
     margin-top: 80px;
-    width: 300px;
-    height: 300px;
+    width: 20%;
+    height: 20%; /* Rovnaká výška ako šírka */
+    aspect-ratio: 1 / 1; /* Poměr šířky a výšky bude 1:1 */
+
     background-color: #333;
     border-radius: 500px;
     font-size: 1.6rem;
     color: rgb(141, 141, 141) !important;
+    background-image: url("domko.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;  /* Zakáže opakovanie */
+    background-position: center; /* Zarovná obrázok hore do stredu */
+
 }
 .ktosme-textik2>h2{
 
     text-align: center;
-    margin-top: 200px;
+    margin-top: 300px;
      
     color: #f4f4f4 !important;
 }
@@ -284,7 +295,7 @@ h4.text-center,
     text-align: center;
     color: #f4f4f4 !important;
 
-    margin-top: 200px;
+    margin-top: 300px;
 }
 .textiky{
     display: flex;
@@ -304,15 +315,19 @@ h4.text-center,
 }
 .arr1{
     position: absolute;
-    width: 100px;
-    margin-left: 1000px;
+    width: 5%;
+    margin-left: 70%;
    
     transform: scaleX(-1) rotate(270deg);
+    filter: invert(1);
+
 }
 .arr2{
     position: absolute;
-    margin-left: 350px;
-    width: 100px;
+    margin-left: 23%;
+    filter: invert(1);
+
+    width: 5%;
     transform: rotate(270deg); /* Otočí o 45 stupňov */
 }
 .crown1{
@@ -338,6 +353,261 @@ h4.text-center,
     position: absolute;
     margin-left: 30%;
     z-index: 1;
-    width: 600px;
+    width: 40%;
     margin-top: 100px;
+    filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.5));
+
+}
+.click {
+    position: absolute;
+    width: 50px;
+    filter: invert(1);
+    z-index: 5;
+    margin-top: 120px;
+    margin-left: -50px;
+    animation: circular-motion 3s linear infinite;
+}
+
+@keyframes circular-motion {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    25% {
+        transform: translate(20px, 10px);
+    }
+    50% {
+        transform: translate(0px, 20px);
+    }
+    75% {
+        transform: translate(-20px, 10px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+/* Zlomyky*/
+@media (max-width: 1350px) {
+    .ktosme-textik2>h2 {
+        text-align: center;
+        margin-top: 250px;
+        color: #f4f4f4 !important;
+    }
+    .ktosme-textik1>h2 {
+        text-align: center;
+        margin-top: 250px;
+        color: #f4f4f4 !important;
+    }
+    .text-kto{
+        margin-top: 30vh;
+    }
+    .crown1{
+        margin-top:70px ;
+    }
+    .crown2{
+        margin-top: 70px;
+    }
+    .ktosme-nadpis{
+        padding-top:8vh;
+    }
+
+}
+@media (max-width: 1140px) {
+    .uvod-podNadpis {
+      font-size: 2rem;
+    }
+    .uvod-Nadpis {
+        font-size: 2.5rem;
+      }
+    .onas-text{
+        padding-top: 20vh;
+    }
+}
+@media (max-width: 950px) {
+    .uvod-podNadpis {
+      font-size: 1.5rem;
+    }
+    .uvod-text>h1 {
+        font-size: 3.5rem;
+      }
+    .onas-text{
+        padding-top: 20vh;
+    }
+    .uvod-buttons{
+        width: 60%;
+        gap: 50%;
+        margin-left: 20%;
+    }
+    .click{
+        margin-left: -280px;
+    }
+    .lampa{
+        width: 150px;
+    }
+    .python{
+        width: 100px;
+        margin-left: 72.5%;
+        margin-top: 25vh;
+    }
+    .crown1{
+        margin-top:120px ;
+        width: 100px;
+        margin-left: 75px;
+    }
+    .crown2{
+        margin-top: 120px;
+        width: 100px;
+    }
+    .carpet{
+        margin-top: 150px;
+    }
+    .text-kto{
+        font-size: 1.2rem;
+    }
+}
+@media (max-width: 750px) {
+    .onas-textik{
+        font-size: 1.2rem;
+    }
+    .onas-nadpis{
+        font-size: 2.5rem;
+    }
+    .ktosme-textik2>h2{
+        font-size: 1.5rem;
+        margin-top: 200px;
+    }
+    .ktosme-textik1>h2{
+        font-size: 1.5rem;
+        margin-top: 200px;
+
+    }
+    .crown1{
+        width: 70px;
+        margin-top: 130px;
+        margin-left: 60px;
+    }
+
+    .crown2{
+        width: 70px;
+        margin-top: 130px;
+    }
+    .ktosme-nadpis{
+        font-size: 2.5rem
+    }
+    .uvod-text>h1 {
+        font-size: 2.5rem;
+        margin-top: 10vh;
+    }
+    .uvod-podNadpis{
+        font-size: 1.5rem;
+    }
+    .uvod-buttons{
+        gap:30%
+    }
+}
+@media (max-width: 550px) {
+    .python{
+        width: 80px;
+        margin-top: 15vh;
+    }
+    .lampa{
+        width: 100px;
+        margin-left: 71%;
+    }
+    .crown1{
+        margin-left: 40px;
+    }
+    .uvod-buttons{
+        width: 70%;
+        margin-left: 15%;
+        gap: 20%;
+    }
+    .ktosme-textik2>h2 {
+        font-size: 1.4rem;
+        margin-left: -20px;
+        margin-top: 150px;
+
+    }
+    .ktosme-textik1>h2 {
+        font-size: 1.4rem;
+        margin-right: -20px;
+        margin-top: 150px;
+    }
+    .carpet{
+        display: none;
+    }
+}
+@media (max-width: 490px) {
+    .uvod-text{
+        width: 70%;
+        margin-left: 15%;
+    }
+    .onas-textik{
+        text-align: center;
+    }
+    .textiky{
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+        align-items: center;
+    }
+    .section-3{
+        height: auto;
+    }
+    .ktosme-textik1{
+        width: 60%;
+    }
+    .spse-po{
+        width: 60%;
+    }
+    .ktosme-textik2{
+        width: 60%;
+    }
+    .ktosme-textik1>h2{
+        margin-top: -50px;
+        font-size: 1.5rem;
+    }
+    .ktosme-textik2>h2{
+        margin-top: -50px;
+        font-size: 1.5rem;
+    }
+    .text-kto{
+        margin-top: 5vh;
+        padding-bottom: 5vh;
+    }
+    .crown1{
+        display: none;
+    }
+    .crown2{
+        display: none;
+    }
+    .arr1{
+        display: none;
+    }
+    .arr2{
+        display: none;
+    }
+
+}
+@media (max-width: 490px) {
+    .python{
+        display: none;
+    }
+    .lampa{
+        display: none;
+    }
+    .onas-nadpis{
+        text-align: center;
+    }
+    .onas-text{
+        padding-top: 10vh;
+        padding-bottom: 0px;
+    }
+}
+@media (max-width: 370px) {
+    .uvod-buttons{
+        flex-direction: column;
+    }
+    .section-1{
+        height: 100vh;
+    }
 }
