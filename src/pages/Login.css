@@ -88,3 +88,19 @@ body {
     color: whitesmoke;
 
 }
+
+@media (max-width: 992px) {
+    .pozadie-login{
+        width: 80% !important;
+        margin-left: 10% !important;
+    }
+
+}
+@media (max-width: 384px) {
+    .Nadpis-login{
+        font-size: 2rem !important;
+    }
+    .form-control{
+        height: 25px !important;
+    }
+}

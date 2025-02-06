@@ -50,12 +50,12 @@ const Header = () => {
                                 </li>
                                 <li className="nav-item">
                                     <Link to="/ucivo" className="nav-link" onClick={closeMenu}>
-                                        UČIVO
+                                        Učivo
                                     </Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link to="/notes" className="nav-link" onClick={closeMenu}>
-                                        POZNÁMKY
+                                        Poznámky
                                     </Link>
                                 </li>
                             </ul>

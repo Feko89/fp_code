@@ -602,12 +602,16 @@ h4.text-center,
         padding-top: 10vh;
         padding-bottom: 0px;
     }
-}
-@media (max-width: 370px) {
     .uvod-buttons{
         flex-direction: column;
     }
     .section-1{
         height: 100vh;
+    }
+    .uvod-text>h1{
+        margin-top: 0vh;
+    }
+    .section-2{
+        height: 80vh;
     }
 }

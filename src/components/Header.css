@@ -1,7 +1,7 @@
 header {
     background-color:  #282828 !important;
     display: flex;
-    margin-top: 5px;
+    margin-top: 10px;
     align-items: center;
     width: 98%;
     margin-left: 1%;
@@ -181,6 +181,12 @@ header.bg-body-tertiary,
         display: none;
     }
 }
+@media (max-width: 580px) {
+    .header-login a{
+        text-align: center;
+        font-size: 1rem !important;
+    }
+}
 @media (max-width: 475px) {
     .header-title{
         font-size: 1.5rem !important;
@@ -199,5 +205,20 @@ header.bg-body-tertiary,
     }
     .header-login{
         width: 500px;
+    }
+    .navbar-nav{
+        gap: 0px;
+        padding: 0px;
+    }
+    
+}
+@media (max-width: 405px) {
+    .header-login a{
+        text-align: center;
+        font-size: 0.8rem !important;
+    }
+    .navbar-nav{
+        gap: 0px;
+        padding: 0px;
     }
 }
