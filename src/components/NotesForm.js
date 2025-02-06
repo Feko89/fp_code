@@ -9,6 +9,8 @@ const NotesForm = () => {
   const [notes, setNotes] = useState([]); // Zoznam poznámok
   const [error, setError] = useState("");
   const [editingNoteId, setEditingNoteId] = useState(null); // ID poznámky, ktorú upravujeme
+  const API_URL = process.env.REACT_APP_API_URL;
+
 
   // Načítanie poznámok z databázy
   const fetchNotes = async () => {
@@ -20,7 +22,7 @@ const NotesForm = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/data", {
+      const response = await fetch(`${API_URL}/data`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -49,8 +51,8 @@ const NotesForm = () => {
 
     try {
       const endpoint = editingNoteId
-        ? `http://localhost:5000/update-note/${editingNoteId}`
-        : "http://localhost:5000/add-note";
+        ? `${API_URL}/update-note/${editingNoteId}`
+        : `${API_URL}/add-note`;
       const method = editingNoteId ? "PUT" : "POST";
 
       const response = await fetch(endpoint, {
@@ -87,9 +89,11 @@ const NotesForm = () => {
   // Odstránenie poznámky
   const deleteNote = async (id) => {
     const token = localStorage.getItem("token");
+    const API_URL = process.env.REACT_APP_API_URL;
+
 
     try {
-      const response = await fetch(`http://localhost:5000/delete-note/${id}`, {
+      const response = await fetch(`${API_URL}/delete-note/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });

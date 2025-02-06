@@ -82,6 +82,7 @@ app.post("/register", async (req, res) => {
 // Prihlásenie používateľa
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
+  console.log("Dostal som request:", req.body);
 
   if (!email || !password) {
     return res.status(400).send("Email and password are required");
