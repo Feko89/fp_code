@@ -36,7 +36,7 @@ const Login = () => {
     return (
         <div className="section-1">
             <div className="pozadie-login">
-                <div className="Nadpis-login">Prihlás sa</div>
+                <div className="Nadpis-login">Prihlásiť sa</div>
                 <form onSubmit={handleLogin}>
                     <div className="mb-3">
                         <label htmlFor="exampleInputEmail1" className="form-label">
