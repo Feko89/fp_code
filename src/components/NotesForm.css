@@ -1,102 +1,155 @@
 .notes-container {
-    max-width: 600px;
-    margin: 0 auto;
-    margin-top: 200px !important;
-    margin-bottom: 200px;
+    display: flex;
+    min-height: 100vh;
+    padding-top: 100px;
+    background-color: #363636;
+    position: relative;
+}
+
+/* Sidebar štýly */
+.notes-sidebar {
+    width: 300px;
+    background-color: #282828;
+    height: calc(100vh - 100px);
+    position: fixed;
+    top: 100px;
+    left: 0;
+}
+
+.sidebar-content {
     padding: 20px;
-    background-color: #424242;
-   
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  .notes-container>h1,h2{
-    color: #afafaf !important;
-  }
-  .notes-form {
-    margin-bottom: 20px;
-  }
-  
-  .form-input,
-  .form-textarea {
+    height: 100%;
+    overflow-y: auto;
+    /* Štýly pre scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: #0ebac5 #282828;
+}
+
+/* Štýly pre scrollbar v Chrome */
+.sidebar-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+    background: #282828;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+    background-color: #0ebac5;
+    border-radius: 4px;
+}
+
+.new-note-button {
     width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 16px;
-    color: #000000 !important;
-    background-color: #afafaf;
-    border: 1px solid #2b2b2b;
+    padding: 15px;
+    background-color: #0ebac5;
+    color: white;
+    border: none;
     border-radius: 5px;
-  }
-  
-  .form-button {
-    padding: 10px 20px;
     font-size: 16px;
-    color: rgb(0, 0, 0) !important;
-    background-color: #637a9d;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.new-note-button:hover {
+    background-color: #0a8f97;
+}
+
+.notes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.note-item-sidebar {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #363636;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.note-item-sidebar:hover {
+    background-color: #424242;
+}
+
+.note-item-sidebar h3 {
+    margin: 0;
+    color: white;
+    font-size: 16px;
+}
+
+/* Hlavný obsah */
+.notes-main-content {
+    margin-left: 300px;
+    flex-grow: 1;
+    padding: 20px;
+    padding-top: 0;
+}
+
+.notes-form {
+    background-color: #282828;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid rgb(56, 56, 56);
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #363636;
+    border: 1px solid rgb(56, 56, 56);
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+}
+
+.form-textarea {
+    min-height: 400px;
+    resize: vertical;
+}
+
+.form-button {
+    padding: 12px 25px;
+    font-size: 16px;
+    color: white;
+    background-color: #0ebac5;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .form-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .notes-list {
-    margin-top: 20px;
-    list-style: none;
-    padding: 0;
-  }
-  
-  .note-item {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-  
-  .note-item h3 {
-    margin: 0 0 5px 0;
-    color: #000000 !important;
-  }
-  
-  .note-item p {
-    margin: 0 0 10px 0;
-    color: #000000 !important;
-  }
-  
-  .note-actions {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .delete-button {
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+.form-button:hover {
+    background-color: #0a8f97;
+}
+
+.cancel-button {
     background-color: #dc3545;
-  }
-  
-  .delete-button:hover {
-    background-color: #a71d2a;
-  }
-  
-  .edit-button {
-    background-color: #ffc107;
-  }
-  
-  .edit-button:hover {
-    background-color: #e0a800;
-  }
-  
-  .text-danger {
+}
+
+.cancel-button:hover {
+    background-color: #bb2d3b;
+}
+
+.success-message {
+    color: #28a745;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border-radius: 5px;
+}
+
+.error-message {
     color: #dc3545;
-  }
-  .cancel-button {
-    background-color: #6c757d;
-  }
-  
-  .cancel-button:hover {
-    background-color: #5a6268;
-  }
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgba(220, 53, 69, 0.1);
+    border-radius: 5px;
+}
     

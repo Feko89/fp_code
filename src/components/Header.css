@@ -114,8 +114,8 @@ header.bg-body-tertiary,
 }
     
 .navbar, .navbar.bg-body-tertiary, .navbar-expand-lg, .navbar-expand-lg.bg-body-tertiary, nav.bg-body-tertiary, header.bg-body-tertiary, .bg-body-tertiary{
-  
-   
+    
+    gap: 50px !important;
     margin-left: 0% !important;
 }
 .navbar-toggler-icon{
@@ -144,7 +144,7 @@ header.bg-body-tertiary,
 
     .navbar-nav {
         text-align: center;
-        gap: 20px;
+        gap: 200% !important;
         padding: 20px 0;
     }
 
@@ -171,6 +171,7 @@ header.bg-body-tertiary,
     .navbar-collapse,
     .navbar-nav {
         background-color: #282828 !important;
+        gap: 50px;
     }
 }
 @media (max-width: 700px) {

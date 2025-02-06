@@ -9,6 +9,9 @@ const NotesForm = () => {
   const [notes, setNotes] = useState([]); // Zoznam poznámok
   const [error, setError] = useState("");
   const [editingNoteId, setEditingNoteId] = useState(null); // ID poznámky, ktorú upravujeme
+  const [selectedNote, setSelectedNote] = useState(null);
+  const [successMessage, setSuccessMessage] = useState("");
+  const API_URL = process.env.REACT_APP_API_URL;
 
   // Načítanie poznámok z databázy
   const fetchNotes = async () => {
@@ -20,7 +23,7 @@ const NotesForm = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/data", {
+      const response = await fetch(`${API_URL}/data`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -40,6 +43,7 @@ const NotesForm = () => {
   // Pridanie alebo úprava poznámky
   const submitNote = async (e) => {
     e.preventDefault();
+    setSuccessMessage("");
     const token = localStorage.getItem("token");
 
     if (!token) {
@@ -49,8 +53,8 @@ const NotesForm = () => {
 
     try {
       const endpoint = editingNoteId
-        ? `http://localhost:5000/update-note/${editingNoteId}`
-        : "http://localhost:5000/add-note";
+        ? `${API_URL}/data/update-note/${editingNoteId}`
+        : `${API_URL}/add-note`;
       const method = editingNoteId ? "PUT" : "POST";
 
       const response = await fetch(endpoint, {
@@ -67,6 +71,7 @@ const NotesForm = () => {
         setContent(""); // Vyčisti obsah
         setEditingNoteId(null); // Resetuj ID poznámky
         fetchNotes(); // Načítaj aktualizované poznámky
+        setSuccessMessage(editingNoteId ? "Poznámka bola úspešne upravená!" : "Poznámka bola úspešne pridaná!");
         setError("");
       } else {
         setError("Chyba pri pridávaní alebo úprave poznámky.");
@@ -89,7 +94,7 @@ const NotesForm = () => {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch(`http://localhost:5000/delete-note/${id}`, {
+      const response = await fetch(`${API_URL}/data/delete-note/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -104,68 +109,83 @@ const NotesForm = () => {
     }
   };
 
+  const createNewNote = () => {
+    setTitle("");
+    setContent("");
+    setEditingNoteId(null);
+    setSelectedNote(null);
+  };
+
+  const selectNote = (note) => {
+    setSelectedNote(note);
+    setTitle(note.title);
+    setContent(note.content);
+    setEditingNoteId(note._id);
+  };
+
+  // Zoradenie poznámok zostupne podľa dátumu
+  const sortedNotes = [...notes].sort((a, b) => {
+    return new Date(b.createdAt) - new Date(a.createdAt);
+  });
+
   useEffect(() => {
     fetchNotes();
   }, []);
 
   return (
     <div className="notes-container">
-      <h1>{editingNoteId ? "Uprav poznámku" : "Pridaj poznámku"}</h1>
-      <form className="notes-form" onSubmit={submitNote}>
-        <input
-          type="text"
-          className="form-input"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Názov témy"
-        />
-        <textarea
-          className="form-textarea"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="Píš poznámky v Markdown formáte..."
-        />
-        <button className="form-button" type="submit">
-          {editingNoteId ? "Upraviť poznámku" : "Pridať poznámku"}
-        </button>
-        {editingNoteId && (
-          <button
-            className="form-button cancel-button"
-            type="button"
-            onClick={() => {
-              setTitle("");
-              setContent("");
-              setEditingNoteId(null);
-            }}
-          >
-            Zrušiť úpravy
+      <div className="notes-sidebar">
+        <div className="sidebar-content">
+          <button className="new-note-button" onClick={createNewNote}>
+            + Nová poznámka
           </button>
-        )}
-      </form>
-      {error && <p className="text-danger">{error}</p>}
-      <h2>Poznámky:</h2>
-      <ul className="notes-list">
-        {notes.map((note) => (
-          <li className="note-item" key={note._id}>
-            <h3>{note.title}</h3>
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{note.content}</ReactMarkdown>
-            <div className="note-actions">
-              <button
-                className="form-button edit-button"
-                onClick={() => prepareToEditNote(note)}
+          <ul className="notes-list">
+            {sortedNotes.map((note) => (
+              <li
+                key={note._id}
+                className={`note-item-sidebar ${selectedNote?._id === note._id ? 'selected' : ''}`}
+                onClick={() => selectNote(note)}
               >
-                Edit
-              </button>
+                <h3>{note.title || "Bez názvu"}</h3>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="notes-main-content">
+        <form className="notes-form" onSubmit={submitNote}>
+          <input
+            type="text"
+            className="form-input"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Názov poznámky"
+          />
+          <textarea
+            className="form-textarea"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder="Píš poznámky v Markdown formáte..."
+          />
+          <div className="form-actions">
+            <button className="form-button" type="submit">
+              {editingNoteId ? "Upraviť poznámku" : "Uložiť poznámku"}
+            </button>
+            {editingNoteId && (
               <button
-                className="form-button delete-button"
-                onClick={() => deleteNote(note._id)}
+                className="form-button cancel-button"
+                type="button"
+                onClick={createNewNote}
               >
-                Delete
+                Zrušiť úpravy
               </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+            )}
+          </div>
+          {successMessage && <div className="success-message">{successMessage}</div>}
+          {error && <div className="error-message">{error}</div>}
+        </form>
+      </div>
     </div>
   );
 };
