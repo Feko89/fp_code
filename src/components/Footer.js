@@ -27,9 +27,9 @@ const Footer = () => {
                     </div>
                     <div class="foot-grid">
                         <div class="foot-grid-dva">
-                            <h1>Menu:</h1>
+                            <h1>Menu</h1>
                             <div class="grid-content">
-                                <Link to="/" onClick={scrollToTop}>Homepage</Link>
+                                <Link to="/" onClick={scrollToTop}>Domov</Link>
                                 <Link to="/ucivo" onClick={scrollToTop}>Učivo</Link>
                                 <Link to="/notes" onClick={scrollToTop}>Poznámky</Link>
                             </div>

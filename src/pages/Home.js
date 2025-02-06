@@ -36,20 +36,20 @@ const Home = () => {
       <div className="section-1">
         <div className="uvod-con">
           <div className="uvod-text">
-            <h1 className="uvod-Nadpis">&lt;Nauc sa programovat&gt;</h1>
-            <h2 className="uvod-podNadpis">a ukladaj si svoje poznamky</h2>
+            <h1 className="uvod-Nadpis">&lt;Nauč sa programovať&gt;</h1>
+            <h2 className="uvod-podNadpis">a ukladaj si svoje poznámky</h2>
           </div>
           <div className="uvod-buttons">
           <img src={click} alt='click' class="click"></img>
 
             <Link to="/ucivo">
               <button>
-                Zacni sa ucit!
+                Začni sa učiť!
               </button>
             </Link>
             <Link to={isLoggedIn ? '/notes' : '/login'}>
               <button>
-                Napis si poznamky!
+                Napíš si poznámky!
               </button>
             </Link>
           </div>
@@ -85,7 +85,7 @@ const Home = () => {
             <img src={arr} alt="arr" className='arr1'/>
             <img src={arr} alt="arr" className='arr2'/>
 
-            <div className='text-kto'> Sme študenti SPŠE PO Prešov ktorý sa snažia v tento rok 2025 zmaturovať a odísť z tejto krásnej a milovanej školy ktorá nám bude chýbať.</div>
+            <div className='text-kto'> Sme študenti SPŠE PO Prešov, ktorí sa snažia v tento rok 2025 zmaturovať a odísť z tejto krásnej a milovanej školy ktorá nám bude chýbať.</div>
           </div>
         
 

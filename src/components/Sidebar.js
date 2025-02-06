@@ -94,7 +94,7 @@ const Sidebar = ({ setSelectedTopic }) => {
         </li>
 
         <li className="sidebar-item">
-          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Pre studentov")}>Pre Studentov</a>
+          <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Pre studentov")}>Pre Študentov</a>
         </li>
         <li className="sidebar-item">
           <a className="sidebar-link" href="#" onClick={() => setSelectedTopic("Markdown")}>Markdown</a>
