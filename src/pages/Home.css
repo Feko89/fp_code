@@ -69,7 +69,7 @@ padding-top: 250px !important;}
     gap: 6%;
 }
 .uvod-buttons>a>button{
-    border-radius: 0px;
+    border-radius: 500px;
     border: 2px outset #ff6550;
     height: 60px;
     width: 100%;
