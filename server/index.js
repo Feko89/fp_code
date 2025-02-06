@@ -52,10 +52,10 @@ const authenticate = (req, res, next) => {
 
 // Registrácia používateľa
 app.post("/register", async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, name, surname } = req.body;
 
-  if (!email || !password) {
-    return res.status(400).send("Email and password are required");
+  if (!email || !password || !name || !surname) {
+    return res.status(400).send("All fields are required");
   }
 
   let client;
@@ -69,8 +69,21 @@ app.post("/register", async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    await collection.insertOne({ email, password: hashedPassword });
-    res.status(201).send({ message: "User registered successfully" });
+    await collection.insertOne({ 
+      email, 
+      password: hashedPassword,
+      name,
+      surname
+    });
+    
+    res.status(201).send({ 
+      message: "User registered successfully",
+      user: {
+        email,
+        name,
+        surname
+      }
+    });
   } catch (error) {
     console.error("Error registering user:", error);
     res.status(500).send("Error registering user");
@@ -104,7 +117,12 @@ app.post("/login", async (req, res) => {
     }
 
     const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: "1h" });
-    res.send({ token });
+    res.send({
+      token,
+      email: user.email,
+      name: user.name,
+      surname: user.surname
+    });
   } catch (error) {
     console.error("Error logging in user:", error);
     res.status(500).send("Error logging in user");
