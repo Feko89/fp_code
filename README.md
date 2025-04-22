@@ -1,70 +1,137 @@
-# Getting Started with Create React App
+# Dokumentácia webovej časti projektu FP Code
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. Úvod
 
-## Available Scripts
+### 1.1 Cieľ projektu
+Webová aplikácia FP Code je súčasťou hybridného projektu zameraného na výučbu programovania v jazyku Python. Cieľom je poskytnúť používateľom interaktívne prostredie pre učenie sa programovania s dôrazom na jednoduchosť a prehľadnosť.
 
-In the project directory, you can run:
+### 1.2 Použité technológie
+- **Frontend**: React.js, Bootstrap 5
+- **Backend**: Node.js, Express
+- **Databáza**: MongoDB Atlas
+- **Autentifikácia**: JWT (JSON Web Tokens)
+- **Markdown editor**: React Markdown
 
-### `npm start`
+## 2. Architektúra aplikácie
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2.1 Frontend štruktúra
+```
+src/
+├── components/     # Znovupoužiteľné komponenty
+├── pages/         # Hlavné stránky aplikácie
+├── App.js         # Hlavná komponenta aplikácie
+└── index.js       # Vstupný bod aplikácie
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2.2 Backend štruktúra
+```
+server/
+├── index.js       # Hlavný súbor servera
+├── routes/        # API endpointy
+├── models/        # Databázové modely
+└── middleware/    # Middleware funkcie
+```
 
-### `npm test`
+## 3. Hlavné funkcie
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3.1 Autentifikácia
+- Registrácia nových používateľov
+- Prihlásenie existujúcich používateľov
+- Správa JWT tokenov pre bezpečnú komunikáciu
 
-### `npm run build`
+### 3.2 Správa učiva
+- Prehľadné zobrazenie lekcií
+- Interaktívne príklady kódu
+- Možnosť testovania kódu priamo v prehliadači
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3.3 Testy
+- Automatické vyhodnocovanie odpovedí
+- Okamžitá spätná väzba
+- Průběžné sledování pokroku
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 3.4 Poznámky
+- Editor poznámok s podporou Markdown
+- Automatické ukladanie
+- Možnosť exportu poznámok
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 4. Implementácia
 
-### `npm run eject`
+### 4.1 Frontend komponenty
+- Responzívny dizajn pre všetky zariadenia
+- Intuitívne používateľské rozhranie
+- Optimalizované načítavanie obsahu
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 4.2 Backend API
+- RESTful API endpointy
+- Bezpečná autentifikácia
+- Efektívne spracovanie požiadaviek
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4.3 Databázový model
+- Optimalizované schémy pre rýchly prístup
+- Indexovanie často používaných polí
+- Bezpečné ukladanie citlivých údajov
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 5. Bezpečnosť
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 5.1 Autentifikácia a autorizácia
+- Šifrovanie hesiel pomocou bcrypt
+- Validácia JWT tokenov
+- Ochrana proti CSRF útokom
 
-## Learn More
+### 5.2 Databázová bezpečnosť
+- Bezpečné pripojenie k MongoDB Atlas
+- Validácia vstupných dát
+- Pravidelné zálohovanie
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 6. Optimalizácia
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 6.1 Výkon
+- Lazy loading komponentov
+- Optimalizácia obrázkov
+- Cachovanie často používaných dát
 
-### Code Splitting
+### 6.2 SEO
+- Meta tagy pre lepšie indexovanie
+- Responzívny dizajn
+- Optimalizácia pre rýchlosť načítania
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 7. Testovanie
 
-### Analyzing the Bundle Size
+### 7.1 Unit testy
+- Testovanie jednotlivých komponentov
+- Validácia business logiky
+- Testovanie API endpointov
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 7.2 Integračné testy
+- Testovanie interakcií medzi komponentmi
+- Testovanie toku dát
+- Testovanie chybových stavov
 
-### Making a Progressive Web App
+## 8. Nasadenie
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 8.1 Požiadavky na server
+- Node.js verzia 14 alebo vyššia
+- MongoDB Atlas účet
+- SSL certifikát pre HTTPS
 
-### Advanced Configuration
+### 8.2 Proces nasadenia
+1. Build frontend aplikácie
+2. Nastavenie environment premenných
+3. Spustenie backend servera
+4. Konfigurácia reverse proxy
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 9. Údržba a rozvoj
 
-### Deployment
+### 9.1 Monitoring
+- Sledovanie výkonu aplikácie
+- Logovanie chýb
+- Analýza používania
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 9.2 Plánované vylepšenia
+- Pridanie nových lekcií
+- Vylepšenie testovacej sekcie
+- Rozšírenie funkcionalít poznámok
 
-### `npm run build` fails to minify
+## 10. Záver
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Webová aplikácia FP Code poskytuje robustné riešenie pre výučbu programovania v Pythone. Jej modulárna architektúra a moderné technológie umožňujú ľahkú údržbu a rozširovanie funkcionalít. Aplikácia je pripravená na integráciu s mobilnou verziou, čo umožní používateľom plynulý prechod medzi platformami. 
