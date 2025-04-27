@@ -1,6 +1,11 @@
 import React from 'react';
 import '../pages/Ucivo.css';
-
+import pokus from './pokus.jpg';
+import flowlne from './flowline.jpg';
+import connect from './connector.jpg';
+import input from './input.jpg';
+import proces from './process.jpg';
+import terminal from './terminal.jpg';
 const topicsContent = {
   "Úvod do programovania": (
     <>
@@ -47,58 +52,53 @@ const topicsContent = {
     <h3>Symboly používané vo vývojových diagramoch</h3>
     <br></br>
     <table>
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th>Účel</th>
-          <th>Popis</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>→</td>
-          <td>Flow line</td>
-          <td>Indikuje tok logiky prepojením symbolov.</td>
-        </tr>
-        <tr>
-          <td>⊓</td>
-          <td>Terminál (Stop/Start)</td>
-          <td>Reprezentuje začiatok a koniec vývojového diagramu.</td>
-        </tr>
-        <tr>
-          <td>▭</td>
-          <td>Input/Output</td>
-          <td>Používa sa pre vstupné a výstupné operácie.</td>
-        </tr>
-        <tr>
-          <td>▭ (so zaoblenými rohmi)</td>
-          <td>Processing</td>
-          <td>Používa sa pre aritmetické operácie a manipulácie s údajmi.</td>
-        </tr>
-        <tr>
-          <td>◆</td>
-          <td>Decision</td>
-          <td>Používa sa pre rozhodovanie medzi dvoma alebo viacerými alternatívami.</td>
-        </tr>
-        <tr>
-          <td>◯</td>
-          <td>On-page Connector</td>
-          <td>Používa sa na spojenie rôznych častí toku na rovnakej strane.</td>
-        </tr>
-        <tr>
-          <td>⧫</td>
-          <td>Off-page Connector</td>
-          <td>Používa sa na pripojenie toku na inej strane alebo strane.</td>
-        </tr>
-        <tr>
-          <td>⎯▭⎯</td>
-          <td>Predefined Process/Function</td>
-          <td>Reprezentuje skupinu príkazov vykonávajúcich jednu úlohu spracovania.</td>
-        </tr>
-      </tbody>
-    </table>
+  <thead>
+    <tr>
+      <th>Symbolㅤㅤㅤㅤ</th>
+      <th>Účelㅤㅤㅤㅤㅤㅤ</th>
+      <th>Popis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src={flowlne} alt="Flow line" width="50"></img></td>
+      <td>Flow line</td>
+      <td>Indikuje tok logiky prepojením symbolov.</td>
+    </tr>
+    <tr>
+      <td><img src={terminal} alt="Terminál" width="50"></img></td>
+      <td>Terminál </td>
+      <td>Reprezentuje začiatok a koniec vývojového diagramu.</td>
+    </tr>
+    <tr>
+      <td><img src={input} alt="Input/Output" width="50"></img></td>
+      <td>Input/Output</td>
+      <td>Používa sa pre vstupné a výstupné operácie.</td>
+    </tr>
+    <tr>
+      <td><img src={proces} alt="Processing" width="50"></img></td>
+      <td>Processing</td>
+      <td>Používa sa pre aritmetické operácie a manipulácie s údajmi.</td>
+    </tr>
+    <tr>
+      <td><img src={pokus} alt="Decision" width="50"></img></td>
+      <td>Decision</td>
+      <td>Používa sa pre rozhodovanie medzi dvoma alebo viacerými alternatívami.</td>
+    </tr>
+    <tr>
+      <td><img src={connect} alt="On-page Connector" width="50"></img></td>
+      <td>Connector</td>
+      <td>Používa sa na spojenie rôznych častí toku.</td>
+    </tr>
+    
+  </tbody>
+</table>
+
     <br></br>
     <p>Diagramy sú neoddeliteľnou súčasťou vývoja softvéru, pretože zjednodušujú komplexné koncepty a uľahčujú tímovú spoluprácu.</p>
+    <br></br><br></br>
+    <h4>Ako vytvoriť diagram?</h4>
+    <p>Na tvorbu diagramov vám odporúčame aplikáciu DIA. <a href="http://dia-installer.de" target="_blank" rel="noopener noreferrer">Link na stiahnutie programu TU</a></p>
   </>
   ),
   "Syntax": (
